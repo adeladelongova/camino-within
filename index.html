@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pilgrimage to Santiago — A Journey to Yourself</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #b8960c;
+    --gold-lt: #e8d48a;
+    --teal: #2a5a6b;
+    --teal-lt: #e8f2f5;
+    --cream: #faf7f2;
+    --dark: #1a1a1a;
+    --mid: #4a4a4a;
+    --muted: #888;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Montserrat', sans-serif;
+  }
+
+  html, body {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--dark);
+    background: #fff;
+  }
+
+  /* ── LANGUAGE SWITCHER ── */
+  .lang-switcher {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    z-index: 9999;
+    display: flex;
+    gap: 6px;
+  }
+
+  .lang-btn {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    background: var(--teal);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px 16px;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+
+  .lang-btn:hover { background: #1e4352; }
+
+  .lang-btn.active {
+    background: var(--gold);
+    color: #fff;
+  }
+
+  /* ── HIDDEN LANG BLOCKS ── */
+  [data-lang] { display: none; }
+  [data-lang].active { display: block; }
+  [data-lang-inline] { display: none; }
+  [data-lang-inline].active { display: inline; }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #1a2a30;
+    overflow: hidden;
+    padding: 80px 24px;
+  }
+
+  .hero-img {
+    position: absolute;
+    inset: 0;
+    background: url('') center/cover no-repeat;
+    opacity: 0.45;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 760px;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    color: var(--gold-lt);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(44px, 7vw, 86px);
+    font-weight: 300;
+    color: #fff;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-lt);
+  }
+
+  .hero-subtitle {
+    font-family: var(--serif);
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 48px;
+    line-height: 1.4;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-meta-item { text-align: center; }
+
+  .hero-meta-val {
+    display: block;
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 400;
+    color: #fff;
+    line-height: 1.2;
+
+  }
+
+
+  .hero-meta-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-lt);
+    margin-top: 4px;
+  }
+
+  .hero-divider {
+    width: 40px;
+    height: 1px;
+    background: var(--gold-lt);
+    margin: 40px auto;
+    opacity: 0.6;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 100px 24px; }
+
+  .container { max-width: 760px; margin: 0 auto; }
+  .container-wide { max-width: 1000px; margin: 0 auto; }
+
+  /* ── TYPOGRAPHY ── */
+  .eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--teal);
+    margin-bottom: 32px;
+  }
+
+  h2 em { font-style: italic; color: var(--gold); }
+
+  h3 {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--teal);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .lead {
+    font-family: var(--serif);
+    font-size: clamp(19px, 2.5vw, 24px);
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--mid);
+    margin-bottom: 32px;
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--mid);
+    margin-bottom: 20px;
+  }
+
+  .gold-line {
+    width: 48px;
+    height: 2px;
+    background: var(--gold);
+    margin: 36px auto;
+  }
+
+  .gold-line.left { margin-left: 0; }
+
+  /* ── PHOTO BLOCKS ── */
+  .photo-block {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--teal-lt);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 48px 0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .photo-block.tall { aspect-ratio: 4/5; }
+  .photo-block.square { aspect-ratio: 1/1; }
+
+  /* ── QUOTE ── */
+  .quote-block {
+    padding: 60px 40px;
+    text-align: center;
+    background: var(--cream);
+  }
+
+  .quote-text {
+    font-family: var(--serif);
+    font-size: clamp(22px, 3vw, 34px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--teal);
+    line-height: 1.5;
+    max-width: 700px;
+    margin: 0 auto 20px;
+  }
+
+  .quote-author {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ── TWO COL ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  @media (max-width: 680px) {
+    .two-col { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* ── FACILITATORS ── */
+  .facilitator-photo {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--teal-lt);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 28px;
+    overflow: hidden;
+  }
+
+  .facilitator-name {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--teal);
+    margin-bottom: 4px;
+  }
+
+  .facilitator-role {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  /* ── DAYS ── */
+  .day-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 0;
+    margin-bottom: 0;
+    position: relative;
+  }
+
+  .day-item::after {
+    content: '';
+    position: absolute;
+    left: 40px;
+    top: 56px;
+    bottom: -1px;
+    width: 1px;
+    background: #e0d5c5;
+  }
+
+  .day-item:last-child::after { display: none; }
+
+  .day-num {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 12px;
+  }
+
+  .day-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .day-circle span {
+    font-family: var(--serif);
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+  }
+
+  .day-body { padding: 8px 0 52px 24px; }
+
+.day-date {
+    display: none;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+
+  .day-date.active {
+    display: block;
+  }
+
+  .day-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--teal);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .day-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.8;
+    margin: 0;
+  }
+
+  .day-theme {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--teal);
+    background: var(--teal-lt);
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-top: 10px;
+  }
+
+  /* ── PRICE ── */
+  .price-section {
+    background: var(--teal);
+    color: #fff;
+    padding: 60px 24px;
+    text-align: center;
+  }
+
+  .price-section .eyebrow { color: var(--gold-lt); }
+  .price-section h2 { color: #fff; }
+  .price-section p { color: rgba(255,255,255,0.7); }
+
+  .price-big {
+    font-family: var(--serif);
+    font-size: clamp(40px, 6vw, 80px);
+    font-weight: 300;
+    color: #fff;
+    line-height: 1;
+    margin: 20px 0 8px;
+  }
+
+  .price-sub {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-lt);
+    margin: 0;
+  }
+
+  .includes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  @media (max-width: 680px) {
+    .includes-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  .includes-col h4 {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold-lt);
+    margin-bottom: 20px;
+  }
+
+  .includes-col ul { list-style: none; }
+
+  .includes-col ul li {
+    font-size: 14px;
+    color: rgba(255,255,255,0.75);
+    padding: 8px 0 8px 20px;
+position: relative;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    line-height: 1.5;
+  }
+
+  .includes-col ul li::before {
+    content: '—';
+    color: var(--gold-lt);
+    position: absolute;
+left: 0;
+    opacity: 0.6;
+  }
+
+  /* ── CTA SECTION ── */
+  .cta-section {
+    background: var(--cream);
+    padding: 100px 24px;
+    text-align: center;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 16px 48px;
+    background: var(--teal);
+    color: #fff;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+
+  .cta-btn:hover { background: #1e4352; }
+
+  .cta-section .cta-btn { background: var(--teal); }
+
+  /* ── DARK SECTION ── */
+  .dark-section {
+    background: #0d1f25;
+    padding: 100px 24px;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .dark-section .eyebrow { color: var(--gold-lt); }
+  .dark-section h2 { color: #fff; }
+  .dark-section h3 { color: rgba(255,255,255,0.9); }
+  .dark-section p { color: rgba(255,255,255,0.7); }
+  .dark-section .lead { color: rgba(255,255,255,0.8); }
+  .dark-section .facilitator-photo { background: rgba(255,255,255,0.05); }
+  .dark-section .facilitator-name { color: #fff; }
+
+  /* ── PARALLAX DIVIDER ── */
+  .parallax-divider {
+    height: 380px;
+    background: var(--teal-lt);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ── BUEN CAMINO ── */
+  .buen-camino {
+    padding: 80px 24px;
+    text-align: center;
+  }
+
+  .buen-camino p {
+    font-family: var(--serif);
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--teal);
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  /* ── FOOTER ── */
+ footer {
+    padding: 48px 24px;
+    text-align: center;
+    border-top: 1px solid #e8e0d0;
+  }
+
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--gold-lt);
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+  }
+
+  .footer-sub {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* ── CONTACT ── */
+  .contact-info a {
+    color: var(--teal);
+    text-decoration: none;
+  }
+  .contact-info a:hover { text-decoration: underline; }
+
+  .cta-section .contact-info a { color: var(--teal); }
+</style>
+</head>
+<body>
+
+
+<!-- ══ HERO ══════════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-img" style="background-image: url('https://drive.google.com/thumbnail?id=1tcXpIcH4_-4zAMWk0Xaj_XXM18gN0tX4&sz=w1600'); background-size: cover; background-position: center; opacity: 0.45;"></div>
+
+  <!-- ══ LANGUAGE SWITCHER ══ -->
+  <div class="lang-switcher">
+    <button class="lang-btn active" onclick="setLang('cs')">CZ</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('pl')">PL</button>
+  </div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">
+      <span data-lang="cs" class="active">ŠPANĚLSKÁ POUTNÍ CESTA DO SANTIAGA</span>
+      <span data-lang="en">SPANISH PILGRIMAGE ROUTE TO SANTIAGO</span>
+      <span data-lang="pl">HISZPAŃSKA DROGA PIELGRZYMKOWA DO SANTIAGO</span>
+    </p>
+    <h1>Camino<br><em>Within</em></h1>
+    <p class="hero-subtitle">
+      <span data-lang="cs" class="active">Cesta k sobě</span>
+      <span data-lang="en">A Journey to Yourself</span>
+      <span data-lang="pl">Podróż do siebie</span>
+    </p>
+    <div class="hero-divider"></div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="hero-meta-val">
+  <span data-lang="cs" class="active">25. října – 1. listopadu</span>
+  <span data-lang="en">October 25 – November 1</span>
+  <span data-lang="pl">25 października – 1 listopada</span>
+</span>
+        <span class="hero-meta-label">
+          <span data-lang="cs" class="active">Říjen 2026</span>
+          <span data-lang="en">October 2026</span>
+          <span data-lang="pl">Październik 2026</span>
+        </span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-val">~100 km</span>
+        <span class="hero-meta-label">Lugo → Santiago</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-val">10–12</span>
+        <span class="hero-meta-label">
+          <span data-lang="cs" class="active">účastníků</span>
+          <span data-lang="en">participants</span>
+          <span data-lang="pl">uczestników</span>
+        </span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-val">600–700 €</span>
+        <span class="hero-meta-label">
+          <span data-lang="cs" class="active">cena / os.</span>
+          <span data-lang="en">price / person</span>
+          <span data-lang="pl">cena / os.</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ÚVOD ══════════════════════════════════════════════════════════ -->
+<section style="background: #fff; padding: 100px 24px;">
+  <div class="container" style="text-align: center; max-width: 900px;">
+
+    <!-- CZ -->
+    <div data-lang="cs" class="active">
+      <span class="eyebrow">O retreatu</span>
+      <h2>Co kdybys šel<br><em>100 km pěšky</em><br>a přitom nechal odejít<br>vše, co tě tíží?</h2>
+      <div class="gold-line"></div>
+      <p class="lead">Camino Within je týdenní retreat na slavné poutní cestě Camino de Santiago ve Španělsku. Během 5 dnů chůze projdeš přibližně 100 km z historického města Lugo až do Santiaga de Compostela — a po celou dobu cesty budeš pracovat na sobě. Během retreatu podnikneš dvě poutě – jednu do Santiaga a druhou do svého nitra.</p>
+      <p>Retreat propojuje fyzickou výzvu poutní cesty s technikami osobní transformace — uvolněním stresu z těla, vědomou prací s myslí a praktickým pohledem na to, jak budovat život ze síly, nikoli z nátlaku. Nejde o výkon. Jde o to, co se stane, když tělo začne pouštět a mysl začne naslouchat.</p>
+      <p>Největší odvaha není ujít 100 km. Je to rozhodnutí věnovat týden pouze sobě. Bez výmluv, bez odkladů. Prostě říct ano — sobě, cestě, změně.</p>
+    </div>
+
+    <!-- EN -->
+    <div data-lang="en">
+      <span class="eyebrow">About the retreat</span>
+      <h2>What if you walked<br><em>100 km on foot</em><br>and let go of everything<br>that weighs you down?</h2>
+      <div class="gold-line"></div>
+      <p class="lead">Camino Within is a week-long retreat on the legendary pilgrimage route Camino de Santiago in Spain. Over 5 days of walking, you will cover approximately 100 km from the historic city of Lugo to Santiago de Compostela — and throughout the entire journey, you will be working on yourself. During the retreat, you will undertake two pilgrimages — one to Santiago and one to your own depths.</p>
+      <p>The retreat combines the physical challenge of the pilgrimage route with personal transformation techniques — releasing stress from the body, conscious work with the mind, and a practical approach to building a life from strength, not pressure. It is not about performance. It is about what happens when the body starts to let go and the mind starts to listen.</p>
+      <p>The greatest courage is not walking 100 km. It is the decision to dedicate a week entirely to yourself. No excuses, no delays. Simply saying yes — to yourself, to the path, to change.</p>
+    </div>
+
+    <!-- PL -->
+    <div data-lang="pl">
+      <span class="eyebrow">O rekolekcjach</span>
+      <h2>Co by było, gdybyś przeszedł<br><em>100 km pieszo</em><br>i po drodze puścił<br>wszystko, co Cię ciąży?</h2>
+      <div class="gold-line"></div>
+      <p class="lead">Camino Within to tygodniowe rekolekcje na słynnej trasie pielgrzymkowej Camino de Santiago w Hiszpanii. Przez 5 dni marszu pokonasz około 100 km z historycznego miasta Lugo do Santiago de Compostela — i przez cały czas będziesz pracować nad sobą. Podczas rekolekcji odbędziesz dwie pielgrzymki – jedną do Santiago i drugą w głąb siebie.</p>
+      <p>Rekolekcje łączą fizyczne wyzwanie drogi pielgrzymkowej z technikami osobistej transformacji — uwalnianiem stresu z ciała, świadomą pracą z umysłem i praktycznym podejściem do budowania życia z siły, a nie przymusu. Nie chodzi o wyniki. Chodzi o to, co się dzieje, gdy ciało zaczyna odpuszczać, a umysł zaczyna słuchać.</p>
+      <p>Największa odwaga to nie przejście 100 km. To decyzja, by poświęcić tydzień wyłącznie sobie. Bez wymówek, bez odkładania. Po prostu powiedzieć tak — sobie, drodze, zmianie.</p>
+    </div>
+
+  </div>
+  <div style="text-align: center; padding: 0 24px 20px; margin-top: 30px;">
+    <a class="cta-btn" href="prihlaska.html">
+      <span data-lang="cs" class="active">Chci se přihlásit</span>
+      <span data-lang="en">Sign me up</span>
+      <span data-lang="pl">Chcę się zapisać</span>
+    </a>
+  </div>
+</section>
+
+<!-- ══ FOTO 1 ══════════════════════════════════════════════════════════ -->
+<div class="parallax-divider" style="background-image: url('https://drive.google.com/thumbnail?id=1kY5ZIs84UjU-xQuTy_Mk1mnDwPSR5Vbe&sz=w4000'); background-size: cover; background-position: center 70%;"></div>
+
+<!-- ══ CAMINO PROVIDES ════════════════════════════════════════════════ -->
+<section style="background: #fff; padding: 40px 24px; text-align: center;">
+  <div class="container">
+
+    <div class="quote-block" style="background: none; padding: 0;">
+      <p class="quote-text">„Camino provides."</p>
+      <span class="quote-author">
+        <span data-lang="cs" class="active">tradiční poutnické rčení</span>
+        <span data-lang="en">traditional pilgrim saying</span>
+        <span data-lang="pl">tradycyjne powiedzenie pielgrzymów</span>
+      </span>
+    </div>
+
+    <div class="gold-line"></div>
+
+    <!-- CZ -->
+    <div data-lang="cs" class="active">
+      <p>Na Caminu se stávají věci, které nelze vysvětlit. Správný člověk se objeví ve správný čas. Cizí člověk se stane přítelem na celý život. Síla přijde ve chvíli, kdy si myslíš, že ji nemáš. Odpověď přijde dříve, než dokončíš otázku. Poutníci tomu říkají: Camino provides.</p>
+      <p style="margin-top: 24px;">Stejný princip funguje v tvém životě každý den — je to přirozený zákon. Vesmír, tvoji andělé, strážci a průvodci s tebou mluví neustále. Skrze setkání, která nejsou náhodná. Skrze slova, která přijdou ve správný čas. Skrze pocity, které nelze vysvětlit.</p>
+	<p style="margin-top: 24px;">Na retreatu se společně ponoříme do tohoto jazyka synchronicit a vedení. Ukážeme si jak ho číst, jak na něj odpovídat a jak žít tak, aby ses i doma cítil provázený a bezpodmínečně podporovaný — každý den, na každém kroku.</p>     
+    </div>
+
+    <!-- EN -->
+    <div data-lang="en">
+      <p>On the Camino, things happen that cannot be explained. The right person appears at the right time. A stranger becomes a friend for life. Strength arrives at the moment you think you have none. The answer comes before you finish the question. Pilgrims call it: Camino provides.</p>
+      <p style="margin-top: 24px;">The same principle works in your life every day — it is a natural law. The universe, your angels, guardians and guides speak to you constantly. Through meetings that are not coincidental. Through words that arrive at the right time. Through feelings that cannot be explained.</p>
+      <p style="margin-top: 24px;">On the retreat we will dive together into this language of synchronicities and guidance. We will explore how to read it, how to respond to it, and how to live in a way that you feel accompanied and unconditionally supported — every day, at every step.</p>
+    </div>
+
+    <!-- PL -->
+    <div data-lang="pl">
+      <p>Na Camino dzieją się rzeczy, których nie można wyjaśnić. Właściwa osoba pojawia się we właściwym czasie. Nieznajomy staje się przyjacielem na całe życie. Siła przychodzi w chwili, gdy myślisz, że jej nie masz. Odpowiedź przychodzi zanim skończysz pytanie. Pielgrzymi nazywają to: Camino provides.</p>
+      <p style="margin-top: 24px;">Ta sama zasada działa w Twoim życiu każdego dnia — to naturalne prawo. Wszechświat, Twoi aniołowie, strażnicy i przewodnicy mówią do Ciebie nieustannie. Przez spotkania, które nie są przypadkowe. Przez słowa, które przychodzą we właściwym czasie. Przez uczucia, których nie można wyjaśnić.</p>
+      <p style="margin-top: 24px;">Podczas rekolekcji wspólnie zagłębimy się w ten język synchroniczności i prowadzenia. Pokażemy jak go czytać, jak na niego odpowiadać i jak żyć tak, abyś nawet w domu czuł się towarzyszony i bezwarunkowo wspierany — każdego dnia, na każdym kroku.</p>
+    </div>
+
+
+<div style="margin-top: 32px; text-align: center;">
+  <svg width="110" height="110" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(90)">
+    <line x1="35" y1="64" x2="10" y2="45" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="63" x2="6"  y2="30" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="63" x2="10" y2="16" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="62" x2="22" y2="7"  stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="62" x2="35" y2="4"  stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="62" x2="48" y2="7"  stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="63" x2="60" y2="16" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="63" x2="64" y2="30" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="64" x2="60" y2="46" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="25" y1="61" x2="45" y2="61" stroke="#b8960c" stroke-width="1.6" stroke-linecap="round"/>
+  </svg>
+</div>
+
+  </div>
+</section>
+
+
+<!-- ══ PRO KOHO ══════════════════════════════════════════════════════ -->
+<section style="background: var(--cream); padding: 100px 24px;">
+  <div class="container">
+
+    <!-- CZ -->
+    <div data-lang="cs" class="active">
+      <span class="eyebrow">Pro koho je retreat určen</span>
+      <h2>Toto je pro tebe,<br>pokud<em>…</em></h2>
+      <div class="gold-line left"></div>
+      <p class="lead">cítíš, že je čas udělat něco jinak. Pokud toužíš po hlubší změně — ne té povrchní, ale té která skutečně zůstane. Pokud chceš týden pouze pro sebe, v pohybu, v přírodě, v dobré společnosti. A pokud věříš, že cesta může být učitelem.</p>
+      <p>Retreat je otevřen pro všechny bez rozdílu — pro ty, kdo hledají změnu, i pro ty, kdo ještě nevědí co přesně hledají. Přijď s otevřenou myslí, touhou po pohybu a chutí být v dobré společnosti. Zbytek zařídí Camino.</p>
+      <p style="margin-top: 28px; font-size: 14px; color: var(--muted);"><strong style="color: var(--teal);">Fyzická zdatnost:</strong> Camino není závod, prošly jím lidé různého věku i kondic. Každá etapa má své tempo a své zastávky. Trasa je vhodná pro každého, kdo je zvyklý na běžný pohyb — není třeba být sportovec ani mít speciální přípravu.</p>
+    </div>
+
+    <!-- EN -->
+    <div data-lang="en">
+      <span class="eyebrow">Who is this retreat for</span>
+      <h2>This is for you,<br>if<em>…</em></h2>
+      <div class="gold-line left"></div>
+      <p class="lead">you feel it is time to do something differently. If you are longing for deeper change — not the superficial kind, but the kind that truly stays. If you want a week entirely for yourself, in movement, in nature, in good company. And if you believe that the path can be a teacher.</p>
+      <p>The retreat is open to everyone without exception — for those who are seeking change, and for those who are not yet sure what they are looking for. Come with an open mind, a desire to move, and an appetite for good company. The Camino will take care of the rest.</p>
+      <p style="margin-top: 28px; font-size: 14px; color: var(--muted);"><strong style="color: var(--teal);">Physical fitness:</strong> Camino is not a race — people of all ages and fitness levels have completed it. Each stage has its own pace and stops. The route is suitable for anyone accustomed to regular movement — no special training or athletic background required.</p>
+    </div>
+
+    <!-- PL -->
+    <div data-lang="pl">
+      <span class="eyebrow">Dla kogo są te rekolekcje</span>
+      <h2>To jest dla Ciebie,<br>jeśli<em>…</em></h2>
+      <div class="gold-line left"></div>
+      <p class="lead">czujesz, że czas coś zmienić. Jeśli pragniesz głębszej zmiany — nie powierzchownej, ale takiej, która naprawdę zostaje. Jeśli chcesz tygodnia wyłącznie dla siebie, w ruchu, w naturze, w dobrym towarzystwie. I jeśli wierzysz, że droga może być nauczycielem.</p>
+      <p>Rekolekcje są otwarte dla wszystkich bez wyjątku — dla tych, którzy szukają zmiany, i dla tych, którzy jeszcze nie wiedzą czego dokładnie szukają. Przyjdź z otwartym umysłem, chęcią do ruchu i apetytem na dobre towarzystwo. Resztą zajmie się Camino.</p>
+      <p style="margin-top: 28px; font-size: 14px; color: var(--muted);"><strong style="color: var(--teal);">Kondycja fizyczna:</strong> Camino to nie wyścig — przeszli je ludzie w różnym wieku i różnej kondycji. Każdy etap ma swoje tempo i postoje. Trasa jest odpowiednia dla każdego, kto jest przyzwyczajony do regularnego ruchu — nie trzeba być sportowcem ani mieć specjalnego przygotowania.</p>
+    </div>
+
+<div style="margin-top: 60px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2px; background: #ddd;">
+      <div style="background: #fff; padding: 16px 12px; text-align: center;">
+        <div style="margin-bottom: 4px; display: flex; justify-content: center;">
+  <svg width="32" height="32" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(90)">
+    <line x1="35" y1="64" x2="10" y2="45" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="63" x2="6"  y2="30" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="63" x2="10" y2="16" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="62" x2="22" y2="7"  stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="62" x2="35" y2="4"  stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="62" x2="48" y2="7"  stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="63" x2="60" y2="16" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="63" x2="64" y2="30" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="64" x2="60" y2="46" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="25" y1="61" x2="45" y2="61" stroke="#b8960c" stroke-width="1.6" stroke-linecap="round"/>
+  </svg>
+</div>
+        <p style="font-family: var(--serif); font-size: 16px; color: var(--teal); margin: 0; font-weight: 400;">
+          <span data-lang="cs" class="active">Každodenní rytmus a pohyb</span>
+          <span data-lang="en">Daily rhythm and movement</span>
+          <span data-lang="pl">Codzienny rytm i ruch</span>
+        </p>
+      </div>
+      <div style="background: #fff; padding: 16px 12px; text-align: center;">
+        <div style="margin-bottom: 4px; display: flex; justify-content: center;">
+  <svg width="32" height="32" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(90)">
+    <line x1="35" y1="64" x2="10" y2="45" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="63" x2="6"  y2="30" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="63" x2="10" y2="16" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="62" x2="22" y2="7"  stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="62" x2="35" y2="4"  stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="62" x2="48" y2="7"  stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="63" x2="60" y2="16" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="63" x2="64" y2="30" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="64" x2="60" y2="46" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="25" y1="61" x2="45" y2="61" stroke="#b8960c" stroke-width="1.6" stroke-linecap="round"/>
+  </svg>
+</div>
+        <p style="font-family: var(--serif); font-size: 16px; color: var(--teal); margin: 0; font-weight: 400;">
+          <span data-lang="cs" class="active">Uvolnění stresu a napětí z těla</span>
+          <span data-lang="en">Release of stress and tension from the body</span>
+          <span data-lang="pl">Uwolnienie stresu i napięcia z ciała</span>
+        </p>
+      </div>
+      <div style="background: #fff; padding: 16px 12px; text-align: center;">
+        <div style="margin-bottom: 4px; display: flex; justify-content: center;">
+  <svg width="32" height="32" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(90)">
+    <line x1="35" y1="64" x2="10" y2="45" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="63" x2="6"  y2="30" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="63" x2="10" y2="16" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="62" x2="22" y2="7"  stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="62" x2="35" y2="4"  stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="62" x2="48" y2="7"  stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="63" x2="60" y2="16" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="63" x2="64" y2="30" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="64" x2="60" y2="46" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="25" y1="61" x2="45" y2="61" stroke="#b8960c" stroke-width="1.6" stroke-linecap="round"/>
+  </svg>
+</div>
+        <p style="font-family: var(--serif); font-size: 16px; color: var(--teal); margin: 0; font-weight: 400;">
+          <span data-lang="cs" class="active">Ranní meditace a smích na trase</span>
+          <span data-lang="en">Morning meditation and laughter on the trail</span>
+          <span data-lang="pl">Poranna medytacja i śmiech na trasie</span>
+        </p>
+      </div>
+      <div style="background: #fff; padding: 16px 12px; text-align: center;">
+       <div style="margin-bottom: 4px; display: flex; justify-content: center;">
+  <svg width="32" height="32" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(90)">
+    <line x1="35" y1="64" x2="10" y2="45" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="63" x2="6"  y2="30" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="63" x2="10" y2="16" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="62" x2="22" y2="7"  stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="62" x2="35" y2="4"  stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="62" x2="48" y2="7"  stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="63" x2="60" y2="16" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="63" x2="64" y2="30" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="64" x2="60" y2="46" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="25" y1="61" x2="45" y2="61" stroke="#b8960c" stroke-width="1.6" stroke-linecap="round"/>
+  </svg>
+</div>
+        <p style="font-family: var(--serif); font-size: 16px; color: var(--teal); margin: 0; font-weight: 400;">
+          <span data-lang="cs" class="active">Objevování flow života</span>
+          <span data-lang="en">Discovering the flow of life</span>
+          <span data-lang="pl">Odkrywanie flow życia</span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div style="text-align: center; padding: 0 24px 20px; margin-top: 30px;">
+    <a class="cta-btn" href="prihlaska.html">
+      <span data-lang="cs" class="active">Jdu do toho</span>
+      <span data-lang="en">Count me in</span>
+      <span data-lang="pl">Jestem na to</span>
+    </a>
+  </div>
+</section>
+
+<!-- ══ FOTO 4 ══════════════════════════════════════════════════════════ -->
+
+<section style="padding: 0;">
+  <div class="two-col" style="max-width: 1200px; margin: 0 auto; gap: 0; align-items: stretch;">
+    <div style="padding: 30px 45px; display: flex; flex-direction: column; justify-content: center; background: #fff;">
+
+      <div data-lang="cs" class="active">
+        <span class="eyebrow">Den na Caminu</span>
+	<h3 style="font-family: var(--serif); font-size: clamp(22px, 3vw, 36px); font-weight: 300; font-style: italic; color: var(--teal); line-height: 1.5;">"Každý krok na Caminu je krokem k sobě samému."</h3>
+        <div class="gold-line left"></div>
+        <p>Každý den na trase má svůj rytmus — ráno se probouzíme, večer uvolňujeme. A mezi tím si povídáme. O zdraví, o stresu, o energii a vibracích, o tom jak naslouchat svému vyššímu já. Každý den přinese nové téma, nový pohled, novou hloubku.</p>
+        <p style="margin-top: 20px; font-size: 14px; color: var(--muted); line-height: 2;">
+          <strong style="color: var(--teal); display: block; margin-bottom: 8px;">Ráno a během dne:</strong>
+          Pět Tibeťanů · Jóga smíchu · Vědomá chůze · Živé rozhovory na trase
+        </p>
+        <p style="font-size: 14px; color: var(--muted); line-height: 2;">
+          <strong style="color: var(--teal); display: block; margin-bottom: 8px;">Večer:</strong>
+          Somatické uvolňovací techniky · Dechové techniky · Manifestační práce · Sdílení v kruhu
+        </p>
+      </div>
+
+      <div data-lang="en">
+        <span class="eyebrow">A Day on the Camino</span>
+	<h3 style="font-family: var(--serif); font-size: clamp(22px, 3vw, 36px); font-weight: 300; font-style: italic; color: var(--teal); line-height: 1.5;">"Every step on the Camino is a step toward yourself."</h3>
+        <div class="gold-line left"></div>
+        <p>Every day on the trail has its own rhythm — we wake up in the morning, we release in the evening. And in between, we talk. About health, about stress, about energy and vibrations, about how to listen to your higher self. Each day brings a new topic, a new perspective, a new depth.</p>
+        <p style="margin-top: 20px; font-size: 14px; color: var(--muted); line-height: 2;">
+          <strong style="color: var(--teal); display: block; margin-bottom: 8px;">Morning and during the day:</strong>
+          Five Tibetans · Laughter Yoga · Conscious Walking · Live conversations on the trail
+        </p>
+        <p style="font-size: 14px; color: var(--muted); line-height: 2;">
+          <strong style="color: var(--teal); display: block; margin-bottom: 8px;">Evening:</strong>
+          Somatic release techniques · Breathwork · Manifestation work · Sharing in circle
+        </p>
+      </div>
+
+      <div data-lang="pl">
+        <span class="eyebrow">Dzień na Camino</span>
+	<h3 style="font-family: var(--serif); font-size: clamp(22px, 3vw, 36px); font-weight: 300; font-style: italic; color: var(--teal); line-height: 1.5;">"Każdy krok na Camino to krok ku sobie samemu."</h3>
+        <div class="gold-line left"></div>
+        <p>Każdy dzień na trasie ma swój rytm — rano się budzimy, wieczorem uwalniamy. A pomiędzy rozmawiamy. O zdrowiu, o stresie, o energii i wibracjach, o tym jak słuchać swojego wyższego ja. Każdy dzień przyniesie nowy temat, nowe spojrzenie, nową głębię.</p>
+        <p style="margin-top: 20px; font-size: 14px; color: var(--muted); line-height: 2;">
+          <strong style="color: var(--teal); display: block; margin-bottom: 8px;">Rano i w ciągu dnia:</strong>
+          Pięć Tybetańczyków · Joga śmiechu · Świadome chodzenie · Żywe rozmowy na trasie
+        </p>
+        <p style="font-size: 14px; color: var(--muted); line-height: 2;">
+          <strong style="color: var(--teal); display: block; margin-bottom: 8px;">Wieczorem:</strong>
+          Somatyczne techniki uwalniania · Techniki oddechowe · Praca z manifestacją · Dzielenie się w kręgu
+        </p>
+      </div>
+
+    </div>
+      <div style="margin: 0; overflow: hidden; height: 670px; align-self: stretch;">
+      <img src="https://drive.google.com/thumbnail?id=1PVgTozx6l14IEAYzSSD-dI8NbgFbh2ix&sz=w1200" alt="Group session" style="width:100%; height:100%; object-fit:cover; display:block; object-position: center bottom;">
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FACILITÁTOŘI — DARK ══════════════════════════════════════════ -->
+<section class="dark-section">
+  <div class="container-wide">
+    <div style="text-align: center; margin-bottom: 80px;">
+
+      <div data-lang="cs" class="active">
+        <span class="eyebrow">Vaši průvodci</span>
+        <h2>Lidé, kteří<br>tě povedou</h2>
+        <div class="gold-line"></div>
+        <p class="lead" style="max-width: 580px; margin: 0 auto;">Lukas a Adéla budou přítomni po celou dobu retreatu — od prvního kruhu v Lugu až po poslední objetí v Santiagu.</p>
+      </div>
+
+      <div data-lang="en">
+        <span class="eyebrow">Your guides</span>
+        <h2>The people who<br>will lead you</h2>
+        <div class="gold-line"></div>
+        <p class="lead" style="max-width: 580px; margin: 0 auto;">Lukas and Adéla will be present throughout the entire retreat — from the opening circle in Lugo to the final embrace in Santiago.</p>
+      </div>
+
+      <div data-lang="pl">
+        <span class="eyebrow">Wasi przewodnicy</span>
+        <h2>Ludzie, którzy<br>Cię poprowadzą</h2>
+        <div class="gold-line"></div>
+        <p class="lead" style="max-width: 580px; margin: 0 auto;">Lukas i Adéla będą obecni przez cały czas trwania rekolekcji — od pierwszego kręgu w Lugo po ostatnie objęcie w Santiago.</p>
+      </div>
+
+    </div>
+
+    <div class="two-col" style="gap: 80px; align-items: start;">
+
+      <!-- LUKAS -->
+      <div>
+        <div class="facilitator-photo" style="height: 350px; overflow: hidden;">
+          <img src="https://drive.google.com/thumbnail?id=16DBrayJRli9lQNtOm59RxD7S4iqPUv_p&sz=w800" alt="Lukas Misiorowski" style="width:100%; height:100%; object-fit:cover; display:block; object-position: center 60%;">
+        </div>
+        <div style="height: 2px; background: var(--gold); width: 40px; margin-bottom: 20px;"></div>
+        <div class="facilitator-name">Lukas Misiorowski</div>
+        <span class="facilitator-role">
+          <span data-lang="cs" class="active">Hlavní facilitátor · Power vs. Force</span>
+          <span data-lang="en">Lead Facilitator · Power vs. Force</span>
+          <span data-lang="pl">Główny facylitator · Power vs. Force</span>
+        </span>
+
+        <div data-lang="cs" class="active">
+          <p>Lukas vybudoval skupinu pěti firem na všech kontinentech a přesto zjistil, že tam, kde je vnitřní odpor, přichází místo radosti vyčerpání. Vnější úspěch bez vnitřní rovnováhy nestačí. Proto od byznysu odešel a vydal se na vlastní cestu objevování sebe sama.</p>
+          <p>Po těžké motocyklové nehodě zažil dvakrát klinickou smrt. Tato zkušenost zásadně proměnila jeho životní dráhu. Dnes učí lidi pracovat ze síly, nikoli z nátlaku.</p>
+          <p>Lukas je certifikovaný lektor jógy smíchu a nyní je také v procesu certifikace metody TRE (Tension & Trauma Releasing Exercises). Se svými studenty i klienty praktikuje řadu somatických, dechových i energetických technik. Vede workshop Power vs. Force a zároveň je přítomen každý den cesty jako průvodce. Sám si prošel celou trasu Camino Franchese a přesně proto ví, co se může stát, když člověk dovolí cestě, aby ho proměnila.</p>
+          <p style="font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 16px;">Hovoří anglicky, německy, polsky, španělsky, čínsky</p>
+        </div>
+
+        <div data-lang="en">
+          <p>Lukas built a group of five companies across multiple continents, yet discovered that where there is inner resistance, exhaustion comes instead of joy. External success without inner balance is not enough. So he stepped away from business and set out on his own journey of self-discovery.</p>
+          <p>After a serious motorcycle accident, he experienced clinical death twice. That experience profoundly transformed his path. Today he teaches people to operate from strength, not pressure.</p>
+          <p>Lukas is a certified laughter yoga instructor and is currently completing his certification in TRE (Tension & Trauma Releasing Exercises). He practises a range of somatic, breathwork and energy techniques with his students and clients. He leads the Power vs. Force workshop and is present every day of the journey as a guide. He has walked the entire Camino de Frances himself — and that is precisely why he knows what can happen when a person allows the path to transform them.</p>
+          <p style="font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 16px;">Speaks English, German, Polish, Spanish, Chinese</p>
+        </div>
+
+        <div data-lang="pl">
+          <p>Lukas zbudował grupę pięciu firm na wszystkich kontynentach, jednak odkrył, że tam, gdzie jest wewnętrzny opór, zamiast radości przychodzi wyczerpanie. Zewnętrzny sukces bez wewnętrznej równowagi nie wystarcza. Dlatego odszedł od biznesu i wyruszył własną drogą odkrywania siebie.</p>
+          <p>Po poważnym wypadku motocyklowym dwukrotnie doświadczył klinicznej śmierci. To doświadczenie fundamentalnie zmieniło jego życiową ścieżkę. Dziś uczy ludzi działać z siły, a nie z przymusu.</p>
+          <p>Lukas jest certyfikowanym instruktorem jogi śmiechu i jest obecnie w procesie certyfikacji metody TRE (Tension & Trauma Releasing Exercises). Ze swoimi studentami i klientami praktykuje szereg technik somatycznych, oddechowych i energetycznych. Prowadzi warsztat Power vs. Force i jest obecny każdego dnia drogi jako przewodnik. Sam przeszedł całą trasę Camino de Frances — i właśnie dlatego wie, co może się wydarzyć, gdy człowiek pozwoli drodze, aby go przemieniła.</p>
+          <p style="font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 16px;">Mówi po angielsku, niemiecku, polsku, hiszpańsku, chińsku</p>
+        </div>
+      </div>
+
+      <!-- ADÉLA -->
+      <div>
+        <div class="facilitator-photo" style="height: 350px; overflow: hidden;">
+          <img src="https://drive.google.com/thumbnail?id=1PX1L1LO0_-jb2CX_h0FJzZ2-hJJNHKjG&sz=w800" alt="Adéla Delongová" style="width:100%; height:100%; object-fit:cover; display:block; object-position: center 35%;">
+        </div>
+        <div style="height: 2px; background: var(--gold); width: 40px; margin-bottom: 20px;"></div>
+        <div class="facilitator-name">Adéla Delongová</div>
+        <span class="facilitator-role">
+          <span data-lang="cs" class="active">Spolufacilitátorka</span>
+          <span data-lang="en">Co-Facilitator</span>
+          <span data-lang="pl">Współfacylitatorka</span>
+        </span>
+
+        <div data-lang="cs" class="active">
+          <p>Adéla vystudovala Biomedicínskou techniku a svůj zájem o lidské tělo postupně rozvinula směrem k jeho přirozené očistě a regeneraci. Věří, že trvalá změna se vždy odehrává na obou úrovních zároveň — fyzické i mentální. Sama dosvědčila, co dokáže tělo, když dostane prostor k regeneraci, a nyní tvoří programy, které lidem ukazují, jak s očistou začít krok po kroku.</p>
+          <p>Její osobní cesta transformace začala v roce 2024, kdy dokončila 800 km dlouhou trasu Camino de Frances. Tato pouť do jejího života přinesla zásadní změny a otevřela dveře novým možnostem.</p>
+          <p>Také nyní prochází certifikací metody TRE a věnuje se somatickým a dechovým cvičením. Na cestě vás spolu s Lukasem provede technikami vědomé chůze, dechové práce a manifestace.</p>
+          <p style="font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 16px;">Hovoří česky, anglicky, polsky</p>
+        </div>
+
+        <div data-lang="en">
+          <p>Adéla studied Biomedical Engineering and gradually developed her interest in the human body toward its natural cleansing and regeneration. She believes that lasting change always happens on both levels simultaneously — physical and mental. She has personally witnessed what the body is capable of when given space to regenerate, and now creates programmes that guide people through the cleansing process step by step.</p>
+          <p>Her personal journey of transformation began in 2024, when she completed the 800 km Camino de Frances. This pilgrimage brought significant changes into her life and opened doors to new possibilities</p>
+          <p>Adéla is also currently completing her TRE certification and practises somatic and breathwork techniques. On the Camino, she will guide the group alongside Lukas through conscious walking, breathwork and manifestation.</p>
+          <p style="font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 16px;">Speaks Czech, English, Polish</p>
+        </div>
+
+        <div data-lang="pl">
+          <p>Adéla studiowała Technikę Biomedyczną i stopniowo rozwinęła swoje zainteresowanie ludzkim ciałem w kierunku jego naturalnego oczyszczania i regeneracji. Wierzy, że trwała zmiana zawsze dokonuje się jednocześnie na obu poziomach — fizycznym i mentalnym. Sama doświadczyła, co potrafi ciało, gdy dostanie przestrzeń do regeneracji, i teraz tworzy programy, które pokazują ludziom, jak zacząć oczyszczanie krok po kroku.</p>
+          <p>Jej osobista droga transformacji rozpoczęła się w 2024 roku, gdy ukończyła 800 km trasę Camino de Frances. Ta pielgrzymka przyniosła znaczące zmiany w jej życiu i otworzyła drzwi nowym możliwościom.</p>
+          <p>Również przechodzi certyfikację metody TRE i zajmuje się ćwiczeniami somatycznymi i oddechowymi. Na drodze razem z Lukasem poprowadzi Cię przez techniki świadomego chodzenia, pracy z oddechem i manifestacji.</p>
+          <p style="font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 16px;">Mówi po czesku, angielsku, polsku</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOTO 3 ══════════════════════════════════════════════════════════ -->
+<div class="parallax-divider" style="height: 318px; background-image: url('https://drive.google.com/thumbnail?id=1TTRqgHTf6LOSHiC0sjplJah7HBF79L04&sz=w1600'); background-size: contain; background-position: center top; background-repeat: no-repeat; background-color: #fff;"></div>
+
+
+<!-- ══ HARMONOGRAM ════════════════════════════════════════════════════ -->
+<section style="background: #fff; padding: 100px 24px;">
+  <div class="container">
+
+    <div data-lang="cs" class="active">
+      <span class="eyebrow">Harmonogram</span>
+      <h2>7 dní,<br>které<em> změní</em><br>perspektivu</h2>
+      <div class="gold-line left"></div>
+      <p style="margin-bottom: 64px; font-style: italic; color: var(--muted); font-size: 14px;">Níže je orientační přehled každého dne. Ubytování na alberguech (speciální hostely pro poutníky) bude ještě upřesněno.</p>
+    </div>
+
+    <div data-lang="en">
+      <span class="eyebrow">Schedule</span>
+      <h2>7 days that<br>will <em>shift</em><br>your perspective</h2>
+      <div class="gold-line left"></div>
+      <p style="margin-bottom: 64px; font-style: italic; color: var(--muted); font-size: 14px;">Below is an overview of each day. Accommodation at albergues (special hostels for pilgrims) will be confirmed closer to departure.</p>
+    </div>
+
+    <div data-lang="pl">
+      <span class="eyebrow">Harmonogram</span>
+      <h2>7 dni, które<br><em>zmienią</em><br>perspektywę</h2>
+      <div class="gold-line left"></div>
+      <p style="margin-bottom: 64px; font-style: italic; color: var(--muted); font-size: 14px;">Poniżej orientacyjny przegląd każdego dnia. Zakwaterowanie w albergues (specjalne hostele dla pielgrzymów) zostanie jeszcze potwierdzone.</p>
+    </div>
+
+    <!-- DAY 0 -->
+    <div class="day-item">
+      <div class="day-num"><div class="day-circle"><span>0</span></div></div>
+      <div class="day-body">
+     	<span class="day-date active" data-lang="cs">25. října · Lugo</span>
+	<span class="day-date" data-lang="en">Oct 25 · Lugo</span>
+	<span class="day-date" data-lang="pl">25 października · Lugo</span>
+        <div class="day-title">
+          <span data-lang="cs" class="active">Příjezd · Otvírací kruh</span>
+          <span data-lang="en">Arrival · Opening Circle</span>
+          <span data-lang="pl">Przyjazd · Krąg otwarcia</span>
+        </div>
+        <p class="day-desc">
+          <span data-lang="cs" class="active">Historické město s nejzachovalejší římskou zdí na světě. První večer patří vzájemnému poznávání a naladění skupiny na společný rytmus cesty.</span>
+          <span data-lang="en">A historic city with the best-preserved Roman walls in the world. The first evening is for getting to know each other and tuning the group into the shared rhythm of the journey.</span>
+          <span data-lang="pl">Historyczne miasto z najlepiej zachowanymi murami rzymskimi na świecie. Pierwszy wieczór należy do wzajemnego poznania się i dostrojenia grupy do wspólnego rytmu drogi.</span>
+        </p>
+        <span class="day-theme">
+          <span data-lang="cs" class="active">Otevření retreatu</span>
+          <span data-lang="en">Opening the retreat</span>
+          <span data-lang="pl">Otwarcie rekolekcji</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- DAY 1 -->
+    <div class="day-item">
+      <div class="day-num"><div class="day-circle"><span>1</span></div></div>
+      <div class="day-body">
+	<span class="day-date active" data-lang="cs">26. října · ~20–26 km</span>
+	<span class="day-date" data-lang="en">Oct 26 · ~20–26 km</span>
+	<span class="day-date" data-lang="pl">26 października · ~20–26 km</span>        
+        <div class="day-title">Lugo → Ferreira</div>
+        <p class="day-desc">
+          <span data-lang="cs" class="active">První kroky na Caminu vedou přes Ponte Romana — starý římský most přes řeku Minho. Tělo se probouzí, krajina Galície se otevírá.</span>
+          <span data-lang="en">The first steps on the Camino lead across the Ponte Romana — an ancient Roman bridge over the Minho river. The body awakens, the landscape of Galicia opens up.</span>
+          <span data-lang="pl">Pierwsze kroki na Camino prowadzą przez Ponte Romana — stary most rzymski nad rzeką Minho. Ciało się budzi, krajobraz Galicji otwiera się.</span>
+        </p>
+        <span class="day-theme">
+          <span data-lang="cs" class="active">Tělo v pohybu</span>
+          <span data-lang="en">Body in motion</span>
+          <span data-lang="pl">Ciało w ruchu</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="day-item">
+      <div class="day-num"><div class="day-circle"><span>2</span></div></div>
+      <div class="day-body">
+	<span class="day-date active" data-lang="cs">27. října · ~13–21 km</span>
+	<span class="day-date" data-lang="en">Oct 27 · ~13–21 km</span>
+	<span class="day-date" data-lang="pl">27 października · ~13–21 km</span>          
+        <div class="day-title">→ Melide / As Seixas</div>
+        <p class="day-desc">
+          <span data-lang="cs" class="active">Zelené kopce, mlha a ticho galicijských lesů. Den vědomé chůze a napojení na krajinu, která mluví sama za sebe.</span>
+          <span data-lang="en">Green hills, mist, and the silence of Galician forests. A day of conscious walking and connecting with a landscape that speaks for itself.</span>
+          <span data-lang="pl">Zielone wzgórza, mgła i cisza galicyjskich lasów. Dzień świadomego chodzenia i połączenia z krajobrazem, który mówi sam za siebie.</span>
+        </p>
+        <span class="day-theme">
+          <span data-lang="cs" class="active">Ticho a napojení</span>
+          <span data-lang="en">Silence and connection</span>
+          <span data-lang="pl">Cisza i połączenie</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- DAY 3 -->
+    <div class="day-item">
+      <div class="day-num"><div class="day-circle"><span>3</span></div></div>
+      <div class="day-body">
+	<span class="day-date active" data-lang="cs">28. října · ~15–29 km</span>
+	<span class="day-date" data-lang="en">Oct 28 · ~15–29 km</span>
+	<span class="day-date" data-lang="pl">28 października · ~15–29 km</span>          
+        <div class="day-title">→ Arzúa</div>
+        <p class="day-desc">
+          <span data-lang="cs" class="active">Arzúa — město proslulé svým výjimečným sýrem. Prostor pro hlubší práci s tělem i myslí a sdílení v kruhu.</span>
+          <span data-lang="en">Arzúa — a town famous for its exceptional cheese. Space for deeper work with body and mind, and sharing in the circle.</span>
+          <span data-lang="pl">Arzúa — miasto słynące z wyjątkowego sera. Przestrzeń na głębszą pracę z ciałem i umysłem oraz dzielenie się w kręgu.</span>
+        </p>
+        <span class="day-theme">Queso de Arzúa</span>
+      </div>
+    </div>
+
+    <!-- DAY 4 -->
+    <div class="day-item">
+      <div class="day-num"><div class="day-circle"><span>4</span></div></div>
+      <div class="day-body">
+	<span class="day-date active" data-lang="cs">29. října · ~20 km</span>
+	<span class="day-date" data-lang="en">Oct 29 · ~20 km</span>
+	<span class="day-date" data-lang="pl">29 października · ~20 km</span>         
+        <div class="day-title">→ O Pedrouzo</div>
+        <p class="day-desc">
+          <span data-lang="cs" class="active">Předposlední etapa před cílem. Nohy už znají svůj rytmus, mysl se začíná ladit na příchod. Poslední noc na trase.</span>
+          <span data-lang="en">The penultimate stage before the finish. Legs already know their rhythm, the mind begins to tune in to the arrival. The last night on the trail.</span>
+          <span data-lang="pl">Przedostatni etap przed celem. Nogi już znają swój rytm, umysł zaczyna się stroić na przybycie. Ostatnia noc na trasie.</span>
+        </p>
+        <span class="day-theme">
+          <span data-lang="cs" class="active">Radostné očekávání</span>
+          <span data-lang="en">Joyful anticipation</span>
+          <span data-lang="pl">Radosne oczekiwanie</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- DAY 5 -->
+    <div class="day-item">
+      <div class="day-num"><div class="day-circle" style="background: var(--gold);"><span>5</span></div></div>
+      <div class="day-body">
+	<span class="day-date active" data-lang="cs">30. října · ~20 km · CÍL</span>
+	<span class="day-date" data-lang="en">Oct 30 · ~20 km · FINISH</span>
+	<span class="day-date" data-lang="pl">30 października · ~20 km · CEL</span>        
+        <div class="day-title" style="color: var(--gold);">→ Santiago de Compostela</div>
+        <p class="day-desc">
+          <span data-lang="cs" class="active">Slavnostní pochod. Vstup na Plaza do Obradoiro — Katedrála sv. Jakuba. Compostela. Odhalení tajného důvodu, proč vlastně všichni do Santiaga putují.</span>
+          <span data-lang="en">The ceremonial march. Entering the Plaza do Obradoiro — the Cathedral of St. James. Compostela. The revelation of the secret reason why everyone truly pilgrimages to Santiago.</span>
+          <span data-lang="pl">Uroczysty marsz. Wejście na Plaza do Obradoiro — Katedra św. Jakuba. Compostela. Odkrycie tajemnego powodu, dla którego wszyscy pielgrzymują do Santiago.</span>
+        </p>
+        <span class="day-theme">
+          <span data-lang="cs" class="active">Vítězných 100 km</span>
+          <span data-lang="en">100 km victorious</span>
+          <span data-lang="pl">Zwycięskie 100 km</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- DAY 6 -->
+    <div class="day-item">
+      <div class="day-num"><div class="day-circle"><span>6</span></div></div>
+      <div class="day-body">
+        <span class="day-date active" data-lang="cs">31. října · Santiago</span>
+	<span class="day-date" data-lang="en">Oct 31 · Santiago</span>
+	<span class="day-date" data-lang="pl">31 października · Santiago</span>   
+        <div class="day-title">Workshop Power vs. Force</div>
+        <p class="day-desc">
+          <span data-lang="cs" class="active">Celodenní workshop Power vs. Force v Santiagu. Práce s tím, co cesta přinesla — integrace, manifestace a uzavření kruhu.</span>
+          <span data-lang="en">Full-day Power vs. Force workshop in Santiago. Working with what the journey brought — integration, manifestation, and closing the circle.</span>
+          <span data-lang="pl">Całodniowy warsztat Power vs. Force w Santiago. Praca z tym, co przyniosła droga — integracja, manifestacja i zamknięcie kręgu.</span>
+        </p>
+        <span class="day-theme">
+          <span data-lang="cs" class="active">Život ze síly</span>
+          <span data-lang="en">Life from power</span>
+          <span data-lang="pl">Życie z siły</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- DAY 7 -->
+    <div class="day-item">
+      <div class="day-num"><div class="day-circle"><span>7</span></div></div>
+      <div class="day-body">
+        <span class="day-date active" data-lang="cs">1. listopadu · Odjezd</span>
+	<span class="day-date" data-lang="en">Nov 1 · Departure</span>
+	<span class="day-date" data-lang="pl">1 listopada · Wyjazd</span>    
+        <div class="day-title">
+          <span data-lang="cs" class="active">Ranní rozloučení</span>
+          <span data-lang="en">Morning farewell</span>
+          <span data-lang="pl">Poranne pożegnanie</span>
+        </div>
+        <p class="day-desc">
+          <span data-lang="cs" class="active">Oficiální konec retreatu. Pro ty, kdo chtějí pokračovat, čeká ještě Fisterra — „konec světa" na atlantickém pobřeží.</span>
+          <span data-lang="en">The official end of the retreat. For those who wish to continue, Fisterra awaits — the "end of the world" on the Atlantic coast.</span>
+          <span data-lang="pl">Oficjalny koniec rekolekcji. Dla tych, którzy chcą kontynuować, czeka Fisterra — „koniec świata" na wybrzeżu atlantyckim.</span>
+        </p>
+        <span class="day-theme">
+          <span data-lang="cs" class="active">Uzavření retreatu</span>
+          <span data-lang="en">Closing the retreat</span>
+          <span data-lang="pl">Zamknięcie rekolekcji</span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div style="text-align: center; padding: 0 24px 20px; margin-top: -20px;">
+    <a class="cta-btn" href="prihlaska.html">
+      <span data-lang="cs" class="active">Chci být součástí</span>
+      <span data-lang="en">I want to be part of this</span>
+      <span data-lang="pl">Chcę być częścią tego</span>
+    </a>
+  </div>
+</section>
+
+
+<!-- ══ FOTO 2 ══════════════════════════════════════════════════════════ -->
+<section style="padding: 0; background: var(--cream);">
+  <div class="two-col" style="max-width: 1200px; margin: 0 auto; gap: 0;">
+    <div class="photo-block" style="margin: 0; border-radius: 0; aspect-ratio: 1/1; overflow: hidden;">
+      <img src="https://drive.google.com/thumbnail?id=1R5a5aqMLtROzgy2UmeRx6nfcBS3rv3Li&sz=w1200" alt="Camino de Santiago" style="width:100%; height:100%; object-fit:cover; display:block; object-position: center bottom;">
+    </div>
+    <div style="padding: 80px 60px; display: flex; flex-direction: column; justify-content: center;">
+      <span class="eyebrow">Compostela</span>
+
+      <div data-lang="cs" class="active">
+        <h3>Certifikát, který si odneseš domů</h3>
+        <div class="gold-line left"></div>
+        <p>Po příchodu do Santiaga každý účastník obdrží <strong>Compostelu</strong> — oficiální certifikát poutníka. Potvrzuje, že jsi ušel cestu vlastníma nohama.</p>
+        <p style="margin-top: 16px; font-size: 15px; color: var(--mid);">Co ale ocertifikovat nejde, je tvůj osobní zážitek s tvou vlastní proměnou. Toto potvrzení si odneseš ve vlastním srdci, ve vlastním těle a ve vlastní mysli.</p>
+      </div>
+
+      <div data-lang="en">
+        <h3>A certificate to take home</h3>
+        <div class="gold-line left"></div>
+        <p>Upon arriving in Santiago, every participant receives the <strong>Compostela</strong> — the official pilgrim certificate. It confirms that you walked the route on your own two feet.</p>
+        <p style="margin-top: 16px; font-size: 15px; color: var(--mid);">What cannot be certified, however, is your personal experience of your own transformation. That confirmation you carry in your own heart, your own body, and your own mind.</p>
+      </div>
+
+      <div data-lang="pl">
+        <h3>Certyfikat, który zabierasz do domu</h3>
+        <div class="gold-line left"></div>
+        <p>Po przybyciu do Santiago każdy uczestnik otrzymuje <strong>Compostelę</strong> — oficjalny certyfikat pielgrzyma. Potwierdza, że przeszedłeś drogę własnymi nogami.</p>
+        <p style="margin-top: 16px; font-size: 15px; color: var(--mid);">Czego nie można jednak certyfikować, to Twoje osobiste doświadczenie własnej przemiany. To potwierdzenie zabierasz we własnym sercu, własnym ciele i własnym umyśle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ CENA ════════════════════════════════════════════════════════════ -->
+<section class="price-section">
+
+  <div data-lang="cs" class="active">
+    <span class="eyebrow" style="font-size: 14px;">Investice</span>
+  </div>
+
+  <div data-lang="en">
+    <span class="eyebrow" style="font-size: 14px;">Investment</span>
+  </div>
+
+  <div data-lang="pl">
+    <span class="eyebrow" style="font-size: 14px;">Inwestycja</span>
+  </div>
+
+  <div class="price-big">600 – 700 €</div>
+  <p class="price-sub">
+    <span data-lang="cs" class="active">cena za osobu · bez letenek a stravování</span>
+    <span data-lang="en">price per person · flights and meals not included</span>
+    <span data-lang="pl">cena za osobę · bez lotów i wyżywienia</span>
+  </p>
+  <p style="font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 8px; font-style: italic;">
+    <span data-lang="cs" class="active">Výsledná cena se bude odvíjet od celkového počtu přihlášených účastníků.</span>
+    <span data-lang="en">The final price will depend on the total number of registered participants.</span>
+    <span data-lang="pl">Ostateczna cena będzie zależeć od łącznej liczby zapisanych uczestników.</span>
+  </p>
+  <div class="gold-line">
+	</div>
+  <div class="includes-grid">
+    <div class="includes-col">
+      <h4>
+        <span data-lang="cs" class="active">Cena zahrnuje:</span>
+        <span data-lang="en">Price includes:</span>
+        <span data-lang="pl">Cena zawiera:</span>
+      </h4>
+      <ul>
+        <li><span data-lang="cs" class="active">Ubytování Lugo — 1 noc (apartmán)</span><span data-lang="en">Accommodation Lugo — 1 night (apartment)</span><span data-lang="pl">Zakwaterowanie Lugo — 1 noc (apartament)</span></li>
+        <li><span data-lang="cs" class="active">Ubytování Arzúa — 1 noc (apartmán)</span><span data-lang="en">Accommodation Arzúa — 1 night (apartment)</span><span data-lang="pl">Zakwaterowanie Arzúa — 1 noc (apartament)</span></li>
+        <li><span data-lang="cs" class="active">Casa Santi Santiago — 2 noci (vila)</span><span data-lang="en">Casa Santi Santiago — 2 nights (villa)</span><span data-lang="pl">Casa Santi Santiago — 2 noce (willa)</span></li>
+        <li><span data-lang="cs" class="active">Welcome Camino balíček</span><span data-lang="en">Welcome Camino kit</span><span data-lang="pl">Pakiet powitalny Welcome Camino</span></li>
+        <li><span data-lang="cs" class="active">Provázení retreatem 7 dní</span><span data-lang="en">7-day retreat guidance</span><span data-lang="pl">Prowadzenie rekolekcji przez 7 dni</span></li>
+        <li><span data-lang="cs" class="active">Workshop Power vs. Force (celodenní)</span><span data-lang="en">Power vs. Force workshop (full day)</span><span data-lang="pl">Warsztat Power vs. Force (całodniowy)</span></li>
+        <li><span data-lang="cs" class="active">NDE sdílení — Lukas Misiorowski</span><span data-lang="en">NDE sharing — Lukas Misiorowski</span><span data-lang="pl">Dzielenie się NDE — Lukas Misiorowski</span></li>
+        <li><span data-lang="cs" class="active">Občerstvení na workshop</span><span data-lang="en">Refreshments at the workshop</span><span data-lang="pl">Poczęstunek na warsztacie</span></li>
+        <li><span data-lang="cs" class="active">Kredenciál — průkaz poutníka</span><span data-lang="en">Credencial — pilgrim passport</span><span data-lang="pl">Credencial — paszport pielgrzyma</span></li>
+        <li><span data-lang="cs" class="active">Brožura Průvodce cestou do Santiaga</span><span data-lang="en">Guide booklet: The Road to Santiago</span><span data-lang="pl">Broszura Przewodnik po drodze do Santiago</span></li>
+      </ul>
+    </div>
+    <div class="includes-col">
+      <h4>
+        <span data-lang="cs" class="active">Cena nezahrnuje:</span>
+        <span data-lang="en">Price excludes:</span>
+        <span data-lang="pl">Cena nie zawiera:</span>
+      </h4>
+      <ul>
+        <li><span data-lang="cs" class="active">Zpáteční letenka</span><span data-lang="en">Return flights</span><span data-lang="pl">Lot w obie strony</span></li>
+        <li><span data-lang="cs" class="active">Přesun Madrid ↔ Lugo/Santiago</span><span data-lang="en">Transfer Madrid ↔ Lugo/Santiago</span><span data-lang="pl">Transfer Madryt ↔ Lugo/Santiago</span></li>
+        <li><span data-lang="cs" class="active">Ubytování na trase — 3 noci v albergue</span><span data-lang="en">Accommodation on route — 3 nights in albergue</span><span data-lang="pl">Zakwaterowanie na trasie — 3 noce w albergue</span></li>
+        <li><span data-lang="cs" class="active">Stravování po celou dobu</span><span data-lang="en">Meals throughout</span><span data-lang="pl">Wyżywienie przez cały czas</span></li>
+        <li><span data-lang="cs" class="active">Doprava v Santiagu</span><span data-lang="en">Transport in Santiago</span><span data-lang="pl">Transport w Santiago</span></li>
+        <li><span data-lang="cs" class="active">Cestovní pojištění</span><span data-lang="en">Travel insurance</span><span data-lang="pl">Ubezpieczenie podróżne</span></li>
+      </ul>
+      <div style="margin-top: 28px; padding: 20px; background: rgba(255,255,255,0.07); border-left: 2px solid var(--gold-lt);">
+        <p style="font-size: 12px; color: rgba(255,255,255,0.5); margin: 0; line-height: 2;">
+          <span data-lang="cs" class="active">Orientačně navíc: doprava Lugo-Madrid ~100–200 € · albergue (3x) ~10–18 € za noc · jídlo ~30–50 € na den · doprava v Santiagu ~20–25 €</span>
+          <span data-lang="en">Approximate extras: transport Lugo-Madrid ~100–200 € · albergue (3×) ~10–18 € per night · food ~30–50 € per day · transport in Santiago ~20–25 €</span>
+          <span data-lang="pl">Orientacyjnie dodatkowo: transport Lugo-Madryt ~100–200 € · albergue (3×) ~10–18 € za noc · jedzenie ~30–50 € dziennie · transport w Santiago ~20–25 €</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ CTA ════════════════════════════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="container">
+
+    <div data-lang="cs" class="active">
+      <span class="eyebrow">Přihlas se</span>
+      <h2>Připraveni<br>vyrazit?</h2>
+      <div class="gold-line"></div>
+      <p class="lead">Kapacita je omezena na 10–12 účastníků. Přihlášení probíhá přes přihlašovací formulář — po jeho vyplnění obdržíš smlouvu a informace o záloze.</p>
+      <p style="font-size: 14px; color: var(--muted);">Před odjezdem obdržíš podrobný průvodce cestou, seznam doporučeného vybavení a veškeré informace k ubytování a logistice.</p>
+    </div>
+
+    <div data-lang="en">
+      <span class="eyebrow">Sign up</span>
+      <h2>Ready<br> to set off?</h2>
+      <div class="gold-line"></div>
+      <p class="lead">Capacity is limited to 10–12 participants. Registration is via the sign-up form — once completed, you will receive  a contract and information about the deposit.</p>
+      <p style="font-size: 14px; color: var(--muted);">Before departure you will receive a detailed route guide, a recommended equipment list, and all information regarding accommodation and logistics.</p>
+    </div>
+
+    <div data-lang="pl">
+      <span class="eyebrow">Zapisz się</span>
+      <h2>Gotowy,<br>by wyruszyć?</h2>
+      <div class="gold-line"></div>
+      <p class="lead">Pojemność jest ograniczona do 10–12 uczestników. Rejestracja odbywa się przez formularz zgłoszeniowy — po jego wypełnieniu otrzymasz umowę i informacje o zaliczce.</p>
+      <p style="font-size: 14px; color: var(--muted);">Przed wyjazdem otrzymasz szczegółowy przewodnik po trasie, listę zalecanego wyposażenia oraz wszelkie informacje dotyczące zakwaterowania i logistyki.</p>
+    </div>
+
+    <a class="cta-btn" href="prihlaska.html">
+      <span data-lang="cs" class="active">Chci se přihlásit</span>
+      <span data-lang="en">Sign me up</span>
+      <span data-lang="pl">Chcę się zapisać</span>
+    </a>
+
+    <div class="contact-info" style="display: grid; grid-template-columns: 1fr 1px 1fr; gap: 32px; align-items: center; margin-top: 40px;">
+      <div style="text-align: right;">
+        <p style="font-weight: 500;">Lukas Misiorowski</p>
+        <p><a href="tel:+48507770631">+48 507 770 631</a></p>
+        <p><a href="mailto:lukasmisi@me.com">lukasmisi@me.com</a></p>
+      </div>
+      <div style="background: var(--gold); height: 80px; width: 1px;"></div>
+      <div style="text-align: left;">
+        <p style="font-weight: 500;">Adéla Delongová</p>
+        <p><a href="tel:+420605516861">+420 605 516 861</a></p>
+        <p><a href="mailto:adi.delongova@gmail.com">adi.delongova@gmail.com</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BUEN CAMINO ════════════════════════════════════════════════════ -->
+<div class="buen-camino">
+  <p>Buen Camino.</p>
+<div class="gold-line"></div>
+  <p style="font-family: var(--sans); font-size: 13px; color: var(--muted); font-style: normal; margin-top: 8px;">
+    <span data-lang="cs" class="active">Těšíme se na cestu s tebou.</span>
+    <span data-lang="en">We look forward to walking with you.</span>
+    <span data-lang="pl">Cieszymy się na wspólną drogę z Tobą.</span>
+  </p>
+</div>
+
+<!-- ══ FOTO HERO SPODNÍ ═══════════════════════════════════════════════ -->
+<div class="parallax-divider" style="height: 350px; background-image: url('https://drive.google.com/thumbnail?id=1_UpiBydWFfsz_q4v01VEBMxWc2Bou3_M&sz=w4000'); background-size: cover; background-position: center 90%;"></div>
+
+<!-- ══ FOOTER ════════════════════════════════════════════════════════ -->
+<footer>
+ <div class="footer-logo">Camino Within</div>
+<div style="margin: 0 0 16px 0; display: flex; justify-content: center;">
+
+  <svg width="32" height="32" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(90)">
+    <line x1="35" y1="64" x2="10" y2="45" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="63" x2="6"  y2="30" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="63" x2="10" y2="16" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="62" x2="22" y2="7"  stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="62" x2="35" y2="4"  stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="62" x2="48" y2="7"  stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="63" x2="60" y2="16" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="63" x2="64" y2="30" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="35" y1="64" x2="60" y2="46" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="25" y1="61" x2="45" y2="61" stroke="#b8960c" stroke-width="1.6" stroke-linecap="round"/>
+  </svg>
+</div>
+  <p class="footer-sub">
+    <span data-lang="cs" class="active">Španělská poutní cesta do Santiaga · Říjen 2026</span>
+    <span data-lang="en">Spanish Pilgrimage Route to Santiago · October 2026</span>
+    <span data-lang="pl">Hiszpańska droga pielgrzymkowa do Santiago · Październik 2026</span>
+  </p>
+  <p style="font-size: 12px; color: #ccc; margin-top: 16px;">Lukas Misiorowski · Adéla Delongová</p>
+</footer>
+
+<!-- ══ LANGUAGE SWITCHER SCRIPT ═══════════════════════════════════════ -->
+<script>
+  const regPages = { cs: 'prihlaska.html', en: 'registration.html', pl: 'rejestracja.html' };
+
+  function setLang(lang) {
+    // Update all data-lang blocks
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.classList.toggle('active', el.getAttribute('data-lang') === lang);
+    });
+    // Update buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('onclick').includes("'" + lang + "'"));
+    });
+    // Update all registration links
+    document.querySelectorAll('a.cta-btn').forEach(a => {
+      a.href = regPages[lang];
+    });
+    // Update html lang attribute
+    document.documentElement.setAttribute('lang', lang);
+    // Save preference
+    localStorage.setItem('lang', lang);
+  }
+
+  // On load, restore saved language
+  (function() {
+    const saved = localStorage.getItem('lang');
+    if (saved && saved !== 'cs') setLang(saved);
+  })();
+</script>
+
+</body>
+</html>
