@@ -35,7 +35,7 @@
 
   /* ── LANGUAGE SWITCHER ── */
   .lang-switcher {
-    position: absolute;
+    position: fixed;
     top: 24px;
     right: 24px;
     z-index: 9999;
@@ -64,6 +64,118 @@
     background: var(--gold);
     color: #fff;
   }
+
+  .menu-btn {
+    background: var(--gold);
+    border: 1px solid var(--gold);
+    font-size: 16px;
+    padding: 8px 14px;
+  }
+
+  .menu-btn:hover { background: rgba(255,255,255,0.1); }
+
+  /* ── FULLSCREEN MENU ── */
+  .nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: #0d1f25;
+    z-index: 99998;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .nav-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .nav-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-family: var(--sans);
+    font-size: 24px;
+    color: rgba(255,255,255,0.5);
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+    padding: 8px;
+    transition: color 0.2s;
+  }
+
+  .nav-close:hover { color: #fff; }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--gold-lt);
+    letter-spacing: 0.1em;
+    margin-bottom: 48px;
+    opacity: 0.7;
+  }
+
+  .nav-links {
+    list-style: none;
+    text-align: center;
+  }
+
+  .nav-links li {
+    margin-bottom: 8px;
+  }
+
+.nav-links a {
+    font-family: var(--serif);
+    font-size: clamp(20px, 3vw, 32px);
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    transition: color 0.2s;
+    display: block;
+    padding: 8px 0;
+letter-spacing: 0.05em;
+  }
+
+.nav-links a:hover { 
+    color: var(--gold-lt);
+    letter-spacing: 0.08em;
+  }
+
+  .nav-links a em {
+    font-style: italic;
+    color: var(--gold-lt);
+  }
+
+  .nav-divider {
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+    margin: 32px auto;
+    opacity: 0.4;
+  }
+
+  .nav-register {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    background: var(--teal);
+    color: #fff !important;
+    padding: 14px 32px;
+    border-radius: 2px;
+    transition: background 0.2s !important;
+  }
+
+  .nav-register:hover { background: #1e4352 !important; color: #fff !important; }
 
   /* ── HIDDEN LANG BLOCKS ── */
   [data-lang] { display: none; }
@@ -555,6 +667,7 @@ left: 0;
 
   /* ── FOOTER ── */
  footer {
+    background: #fff;
     padding: 48px 24px;
     text-align: center;
     border-top: 1px solid #e8e0d0;
@@ -589,15 +702,55 @@ left: 0;
 <body>
 
 
+<!-- ══ NAV OVERLAY ═══════════════════════════════════════════════════ -->
+<div class="nav-overlay" id="navOverlay">
+  <button class="nav-close" onclick="toggleMenu()">✕</button>
+  <div class="nav-logo">Camino Within</div>
+  <ul class="nav-links">
+    <li><a href="#o-retreatu" onclick="toggleMenu()">
+      <span data-lang="cs" class="active">O retreatu</span>
+      <span data-lang="en">About the retreat</span>
+      <span data-lang="pl">O retreacie</span>
+    </a></li>
+    <li><a href="#pro-koho" onclick="toggleMenu()">
+      <span data-lang="cs" class="active">Pro koho</span>
+      <span data-lang="en">Who is it for</span>
+      <span data-lang="pl">Dla kogo</span>
+    </a></li>
+    <li><a href="#pruvodce" onclick="toggleMenu()">
+      <span data-lang="cs" class="active">Průvodce Camino Within</span>
+      <span data-lang="en">Camino Within Guide</span>
+      <span data-lang="pl">Przewodnik Camino Within</span>
+    </a></li>
+    <li><a href="#harmonogram" onclick="toggleMenu()">
+      <span data-lang="cs" class="active">Harmonogram 7 dní</span>
+      <span data-lang="en">7-Day Schedule</span>
+      <span data-lang="pl">Harmonogram 7 dni</span>
+    </a></li>
+    <li><a href="#investice" onclick="toggleMenu()">
+      <span data-lang="cs" class="active">Vaše investice</span>
+      <span data-lang="en">Your Investment</span>
+      <span data-lang="pl">Twoja inwestycja</span>
+    </a></li>
+  </ul>
+  <div class="nav-divider"></div>
+  <a href="#prihlaska" onclick="toggleMenu()" class="nav-register">
+    <span data-lang="cs" class="active">Přihlas se</span>
+    <span data-lang="en">Join us</span>
+    <span data-lang="pl">Zapisz się</span>
+  </a>
+</div>
+
 <!-- ══ HERO ══════════════════════════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-img" style="background-image: url('https://drive.google.com/thumbnail?id=1tcXpIcH4_-4zAMWk0Xaj_XXM18gN0tX4&sz=w1600'); background-size: cover; background-position: center; opacity: 0.45;"></div>
 
   <!-- ══ LANGUAGE SWITCHER ══ -->
   <div class="lang-switcher">
+    <button class="lang-btn" onclick="setLang('pl')">PL</button>    
     <button class="lang-btn active" onclick="setLang('cs')">CZ</button>
     <button class="lang-btn" onclick="setLang('en')">EN</button>
-    <button class="lang-btn" onclick="setLang('pl')">PL</button>
+    <button class="lang-btn menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
   </div>
 
   <div class="hero-content">
@@ -651,6 +804,7 @@ left: 0;
 </section>
 
 <!-- ══ ÚVOD ══════════════════════════════════════════════════════════ -->
+<span id="o-retreatu"></span>
 <section style="background: #fff; padding: 100px 24px;">
   <div class="container" style="text-align: center; max-width: 900px;">
 
@@ -676,11 +830,11 @@ left: 0;
 
     <!-- PL -->
     <div data-lang="pl">
-      <span class="eyebrow">O rekolekcjach</span>
+      <span class="eyebrow">O retreacie</span>
       <h2>Co by było, gdybyś przeszedł<br><em>100 km pieszo</em><br>i po drodze puścił<br>wszystko, co Cię ciąży?</h2>
       <div class="gold-line"></div>
-      <p class="lead">Camino Within to tygodniowe rekolekcje na słynnej trasie pielgrzymkowej Camino de Santiago w Hiszpanii. Przez 5 dni marszu pokonasz około 100 km z historycznego miasta Lugo do Santiago de Compostela — i przez cały czas będziesz pracować nad sobą. Podczas rekolekcji odbędziesz dwie pielgrzymki – jedną do Santiago i drugą w głąb siebie.</p>
-      <p>Rekolekcje łączą fizyczne wyzwanie drogi pielgrzymkowej z technikami osobistej transformacji — uwalnianiem stresu z ciała, świadomą pracą z umysłem i praktycznym podejściem do budowania życia z wewnętrznej siły, a nie z zewnętrznego przymusu. Nie chodzi o wyniki. Chodzi o to, co się dzieje, gdy ciało zaczyna odpuszczać, a umysł zaczyna słuchać.</p>
+      <p class="lead">Camino Within to tygodniowy retreat na słynnej trasie pielgrzymkowej Camino de Santiago w Hiszpanii. Przez 5 dni marszu pokonasz około 100 km z historycznego miasta Lugo do Santiago de Compostela — i przez cały czas będziesz pracować nad sobą. Podczas retreatu odbędziesz dwie pielgrzymki – jedną do Santiago i drugą w głąb siebie.</p>
+      <p>Retreat łączą fizyczne wyzwanie drogi pielgrzymkowej z technikami osobistej transformacji — uwalnianiem stresu z ciała, świadomą pracą z umysłem i praktycznym podejściem do budowania życia z wewnętrznej siły, a nie z zewnętrznego przymusu. Nie chodzi o wyniki. Chodzi o to, co się dzieje, gdy ciało zaczyna odpuszczać, a umysł zaczyna słuchać.</p>
       <p>Największa odwaga to nie przejście 100 km. To decyzja, by poświęcić tydzień wyłącznie sobie. Bez wymówek, bez odkładania. Po prostu powiedzieć tak — sobie, drodze, zmianie.</p>
     </div>
 
@@ -730,7 +884,7 @@ left: 0;
     <div data-lang="pl">
       <p>Na Camino dzieją się rzeczy, których nie można wyjaśnić. Właściwa osoba pojawia się we właściwym czasie. Nieznajomy staje się przyjacielem na całe życie. Siła przychodzi w chwili, gdy myślisz, że jej nie masz. Odpowiedź przychodzi zanim skończysz pytanie. Pielgrzymi nazywają to: Camino provides.</p>
       <p style="margin-top: 24px;">Ta sama zasada działa w Twoim życiu każdego dnia — to naturalne prawo. Wszechświat, Twoi aniołowie, strażnicy i przewodnicy mówią do Ciebie nieustannie. Przez spotkania, które nie są przypadkowe. Przez słowa, które przychodzą we właściwym czasie. Przez uczucia, których nie można wyjaśnić.</p>
-      <p style="margin-top: 24px;">Podczas rekolekcji wspólnie zagłębimy się w ten język synchroniczności i prowadzenia. Pokażemy jak go czytać, jak na niego odpowiadać i jak żyć tak, abyś nawet w domu czuł się towarzyszony i bezwarunkowo wspierany — każdego dnia, na każdym kroku.</p>
+      <p style="margin-top: 24px;">Podczas retreatu wspólnie zagłębimy się w ten język synchroniczności i prowadzenia. Pokażemy jak go czytać, jak na niego odpowiadać i jak żyć tak, abyś nawet w domu czuł się towarzyszony i bezwarunkowo wspierany — każdego dnia, na każdym kroku.</p>
     </div>
 
 
@@ -754,6 +908,7 @@ left: 0;
 
 
 <!-- ══ PRO KOHO ══════════════════════════════════════════════════════ -->
+<span id="pro-koho"></span>
 <section style="background: var(--cream); padding: 100px 24px;">
   <div class="container">
 
@@ -779,11 +934,11 @@ left: 0;
 
     <!-- PL -->
     <div data-lang="pl">
-      <span class="eyebrow">Dla kogo są te rekolekcje</span>
+      <span class="eyebrow">Dla kogo są ten retreat</span>
       <h2>To jest dla Ciebie,<br>jeśli<em>…</em></h2>
       <div class="gold-line left"></div>
       <p class="lead">czujesz, że czas coś zmienić. Jeśli pragniesz głębszej zmiany — nie powierzchownej, ale takiej, która naprawdę zostaje. Jeśli chcesz tygodnia wyłącznie dla siebie, w ruchu, w naturze, w dobrym towarzystwie. I jeśli wierzysz, że droga może być nauczycielem.</p>
-      <p>Rekolekcje są otwarte dla wszystkich bez wyjątku — dla tych, którzy szukają zmiany, i dla tych, którzy jeszcze nie wiedzą czego dokładnie szukają. Przyjdź z otwartym umysłem, chęcią do ruchu i apetytem na dobre towarzystwo. Resztą zajmie się Camino.</p>
+      <p>Retreat jest otwarty dla wszystkich bez wyjątku — dla tych, którzy szukają zmiany, i dla tych, którzy jeszcze nie wiedzą czego dokładnie szukają. Przyjdź z otwartym umysłem, chęcią do ruchu i apetytem na dobre towarzystwo. Resztą zajmie się Camino.</p>
       <p style="margin-top: 28px; font-size: 14px; color: var(--muted);"><strong style="color: var(--teal);">Kondycja fizyczna:</strong> Camino to nie wyścig — przeszli je ludzie w różnym wieku i różnej kondycji. Każdy etap ma swoje tempo i postoje. Trasa jest odpowiednia dla każdego, kto jest przyzwyczajony do regularnego ruchu — nie trzeba być sportowcem ani mieć specjalnego przygotowania.</p>
     </div>
 
@@ -943,6 +1098,7 @@ left: 0;
 
 
 <!-- ══ FACILITÁTOŘI — DARK ══════════════════════════════════════════ -->
+<span id="pruvodce"></span>
 <section class="dark-section">
   <div class="container-wide">
     <div style="text-align: center; margin-bottom: 80px;">
@@ -1023,6 +1179,7 @@ left: 0;
 
 
 <!-- ══ HARMONOGRAM ════════════════════════════════════════════════════ -->
+<span id="harmonogram"></span>
 <section style="background: #fff; padding: 100px 24px;">
   <div class="container">
 
@@ -1067,7 +1224,7 @@ left: 0;
         <span class="day-theme">
           <span data-lang="cs" class="active">Otevření retreatu</span>
           <span data-lang="en">Opening the retreat</span>
-          <span data-lang="pl">Otwarcie rekolekcji</span>
+          <span data-lang="pl">Otwarcie retreatu</span>
         </span>
       </div>
     </div>
@@ -1167,7 +1324,7 @@ left: 0;
         </p>
         <span class="day-theme">
           <span data-lang="cs" class="active">Vítězných 100 km</span>
-          <span data-lang="en">100 km victorious</span>
+          <span data-lang="en">Victorious 100 km</span>
           <span data-lang="pl">Zwycięskie 100 km</span>
         </span>
       </div>
@@ -1209,12 +1366,12 @@ left: 0;
         <p class="day-desc">
           <span data-lang="cs" class="active">Oficiální konec retreatu. Pro ty, kdo chtějí pokračovat, čeká ještě Fisterra — „konec světa" na atlantickém pobřeží.</span>
           <span data-lang="en">The official end of the retreat. For those who wish to continue, Fisterra awaits — the "end of the world" on the Atlantic coast.</span>
-          <span data-lang="pl">Oficjalny koniec rekolekcji. Dla tych, którzy chcą kontynuować, czeka Fisterra — „koniec świata" na wybrzeżu atlantyckim.</span>
+          <span data-lang="pl">Oficjalny koniec retreatu. Dla tych, którzy chcą kontynuować, czeka Fisterra — „koniec świata" na wybrzeżu atlantyckim.</span>
         </p>
         <span class="day-theme">
           <span data-lang="cs" class="active">Uzavření retreatu</span>
           <span data-lang="en">Closing the retreat</span>
-          <span data-lang="pl">Zamknięcie rekolekcji</span>
+          <span data-lang="pl">Zamknięcie retreatu</span>
         </span>
       </div>
     </div>
@@ -1264,6 +1421,7 @@ left: 0;
 
 
 <!-- ══ CENA ════════════════════════════════════════════════════════════ -->
+<span id="investice"></span>
 <section class="price-section">
 
   <div data-lang="cs" class="active">
@@ -1299,7 +1457,7 @@ left: 0;
         <span data-lang="pl">Cena zawiera:</span>
       </h4>
       <ul>
-        <li><span data-lang="cs" class="active">Provázení retreatem 7 dní</span><span data-lang="en">7-day retreat guidance</span><span data-lang="pl">Prowadzenie rekolekcji przez 7 dni</span></li>
+        <li><span data-lang="cs" class="active">Provázení retreatem 7 dní</span><span data-lang="en">7-day retreat guidance</span><span data-lang="pl">Prowadzenie retreatu przez 7 dni</span></li>
         <li><span data-lang="cs" class="active">Workshop Power vs. Force (celodenní)</span><span data-lang="en">Power vs. Force workshop (full day)</span><span data-lang="pl">Warsztat Power vs. Force (całodniowy)</span></li>
         <li><span data-lang="cs" class="active">NDE sdílení — Lukas Misiorowski</span><span data-lang="en">NDE sharing — Lukas Misiorowski</span><span data-lang="pl">Dzielenie się NDE — Lukas Misiorowski</span></li>
         <li><span data-lang="cs" class="active">Občerstvení na workshop</span><span data-lang="en">Refreshments at the workshop</span><span data-lang="pl">Poczęstunek na warsztacie</span></li>
@@ -1335,6 +1493,7 @@ left: 0;
 
 
 <!-- ══ CTA ════════════════════════════════════════════════════════════ -->
+<span id="prihlaska"></span>
 <section class="cta-section">
   <div class="container">
 
@@ -1392,7 +1551,7 @@ left: 0;
   <p style="font-family: var(--sans); font-size: 13px; color: var(--muted); font-style: normal; margin-top: 8px;">
     <span data-lang="cs" class="active">Těšíme se na cestu s tebou.</span>
     <span data-lang="en">We look forward to walking with you.</span>
-    <span data-lang="pl">Cieszymy się na wspólną drogę z Tobą.</span>
+    <span data-lang="pl">Cieszymy się, że będziemy razem w drodze.</span>
   </p>
 </div>
 
@@ -1425,10 +1584,38 @@ left: 0;
   <p style="font-size: 12px; color: #ccc; margin-top: 16px;">Lukas Misiorowski</p>
 </footer>
 
+<!-- ══ LEGAL BAR ══════════════════════════════════════════════════════ -->
+<div style="background: #0d1f25; padding: 14px 40px; width: 100%;">
+  <p style="font-size: 10px; color: rgba(255,255,255,0.35); line-height: 1.6; letter-spacing: 0.04em; text-align: left;">
+    Lukas Misiorowski · Sosnowa 6D, Jagatowo, 83-010, Polska · NIP: 6040272541 · <a href="mailto:lukasbiz@icloud.com" style="color: rgba(255,255,255,0.35); text-decoration: none;">lukasbiz@icloud.com</a>
+  </p>
+  <p style="font-size: 10px; color: rgba(255,255,255,0.35); line-height: 1.6; letter-spacing: 0.04em; text-align: left; margin-top: 4px;">
+    <span data-lang="cs" class="active">Účast podléhá <a href="vop.html" style="color: rgba(232,212,138,0.6); text-decoration: none;">Všeobecným obchodním podmínkám</a> a <a href="gdpr.html" style="color: rgba(232,212,138,0.6); text-decoration: none;">Zásadám ochrany osobních údajů</a>.</span>
+    <span data-lang="en">Participation is subject to our <a href="vop.html" style="color: rgba(232,212,138,0.6); text-decoration: none;">General Terms and Conditions</a> and <a href="gdpr.html" style="color: rgba(232,212,138,0.6); text-decoration: none;">Privacy Policy</a>.</span>
+    <span data-lang="pl">Udział podlega <a href="vop.html" style="color: rgba(232,212,138,0.6); text-decoration: none;">Regulaminowi</a> oraz <a href="gdpr.html" style="color: rgba(232,212,138,0.6); text-decoration: none;">Polityce prywatności</a>.</span>
+  </p>
+</div>
+
 <!-- ══ LANGUAGE SWITCHER SCRIPT ═══════════════════════════════════════ -->
 <script>
   const regPages = { cs: 'prihlaska.html', en: 'registration.html', pl: 'rejestracja.html' };
 
+  function toggleMenu() {
+    const overlay = document.getElementById('navOverlay');
+    overlay.classList.toggle('open');
+    document.body.style.overflow = overlay.classList.contains('open') ? 'hidden' : '';
+  }
+
+  // Close menu on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      const overlay = document.getElementById('navOverlay');
+      if (overlay.classList.contains('open')) toggleMenu();
+    }
+  });
+document.getElementById('navOverlay').addEventListener('click', function(e) {
+    if (e.target === this) toggleMenu();
+  });
   function setLang(lang) {
     // Update all data-lang blocks
     document.querySelectorAll('[data-lang]').forEach(el => {
