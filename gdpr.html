@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polityka prywatności · Privacy Policy · Zásady ochrany osobních údajů — Camino Within</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --gold: #b8960c;
+    --gold-lt: #e8d48a;
+    --teal: #2a5a6b;
+    --cream: #faf7f2;
+    --dark: #1a1a1a;
+    --mid: #4a4a4a;
+    --muted: #888;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Montserrat', sans-serif;
+  }
+  html, body { scroll-behavior: smooth; }
+  body { font-family: var(--sans); font-size: 15px; line-height: 1.8; color: var(--dark); background: var(--cream); }
+  .lang-switcher { position: fixed; top: 24px; right: 24px; z-index: 9999; display: flex; gap: 6px; }
+  .lang-btn { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; background: var(--teal); color: #fff; border: none; cursor: pointer; padding: 10px 16px; border-radius: 2px; transition: background 0.2s; }
+  .lang-btn:hover { background: #1e4352; }
+  .lang-btn.active { background: var(--gold); }
+  [data-lang] { display: none; }
+  [data-lang].active { display: block; }
+  .doc-header { background: #0d1f25; padding: 80px 40px 60px; text-align: center; }
+  .doc-logo { font-family: var(--serif); font-size: 18px; font-weight: 300; font-style: italic; color: var(--gold-lt); letter-spacing: 0.1em; display: block; margin-bottom: 32px; text-decoration: none; }
+  .doc-header h1 { font-family: var(--serif); font-size: clamp(32px, 5vw, 52px); font-weight: 300; color: #fff; line-height: 1.2; margin-bottom: 12px; }
+  .doc-header h1 em { font-style: italic; color: var(--gold-lt); }
+  .doc-header-sub { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 16px; }
+  .gold-line { width: 48px; height: 2px; background: var(--gold); margin: 24px auto; opacity: 0.6; }
+  .doc-content { max-width: 820px; margin: 0 auto; padding: 60px 40px 80px; }
+  .info-box { background: #fff; border-left: 3px solid var(--gold); padding: 18px 24px; margin-bottom: 48px; font-size: 13px; color: var(--mid); line-height: 1.8; font-style: italic; }
+  .intro-p { font-size: 14px; line-height: 1.9; color: var(--mid); margin-bottom: 40px; }
+  .doc-article { margin-bottom: 48px; }
+  .doc-article h2 { font-family: var(--serif); font-size: 20px; font-weight: 600; color: var(--teal); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid rgba(42,90,107,0.15); line-height: 1.3; }
+  .doc-article p { font-size: 14px; line-height: 1.9; color: var(--mid); margin-bottom: 10px; }
+  .doc-article ul { list-style: none; margin: 12px 0; }
+  .doc-article ul li { font-size: 14px; line-height: 1.9; color: var(--mid); padding: 6px 0 6px 20px; border-bottom: 1px solid rgba(0,0,0,0.05); position: relative; }
+  .doc-article ul li::before { content: '—'; color: var(--gold); position: absolute; left: 0; }
+  .doc-article ul li.nb { border-bottom: none; }
+  .doc-article strong { color: var(--dark); font-weight: 600; }
+  .doc-article a { color: var(--teal); text-decoration: none; }
+  .doc-article a:hover { text-decoration: underline; }
+  .doc-article em { font-style: italic; }
+  .back-btn { display: inline-block; margin-top: 16px; font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; background: var(--teal); color: #fff; border: none; cursor: pointer; padding: 14px 32px; border-radius: 2px; text-decoration: none; transition: background 0.2s; }
+  .back-btn:hover { background: #1e4352; }
+  footer { background: #fff; padding: 48px 24px; text-align: center; border-top: 1px solid #e8e0d0; }
+  .footer-logo { font-family: var(--serif); font-size: 22px; font-weight: 300; color: var(--gold-lt); letter-spacing: 0.1em; margin-bottom: 12px; }
+  .footer-sub { font-size: 11px; color: var(--muted); letter-spacing: 0.2em; text-transform: uppercase; }
+  .legal-bar { background: #0d1f25; padding: 14px 40px; width: 100%; }
+  .legal-bar p { font-size: 10px; color: rgba(255,255,255,0.35); line-height: 1.6; letter-spacing: 0.04em; text-align: left; }
+  .legal-bar a { color: rgba(255,255,255,0.35); text-decoration: none; }
+  .legal-bar a.gl { color: rgba(232,212,138,0.6); }
+  @media (max-width: 640px) {
+    .doc-header { padding: 60px 20px 40px; }
+    .doc-content { padding: 40px 20px 60px; }
+    .lang-switcher { top: 12px; right: 12px; }
+    .legal-bar { padding: 14px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="lang-switcher">
+  <button class="lang-btn active" onclick="setLang('pl')">PL</button>
+  <button class="lang-btn" onclick="setLang('cs')">CZ</button>
+  <button class="lang-btn" onclick="setLang('en')">EN</button>
+</div>
+
+<div class="doc-header">
+  <a href="index.html" class="doc-logo">Camino Within</a>
+  <h1>
+    <span data-lang="pl" class="active">Polityka<br><em>prywatności</em></span>
+    <span data-lang="cs">Zásady ochrany<br><em>osobních údajů</em></span>
+    <span data-lang="en">Privacy<br><em>Policy</em></span>
+  </h1>
+  <div class="gold-line"></div>
+  <p class="doc-header-sub">
+    <span data-lang="pl" class="active">Camino Within · RODO · Obowiązuje od dnia publikacji</span>
+    <span data-lang="cs">Camino Within · GDPR · Platné od zveřejnění na webu</span>
+    <span data-lang="en">Camino Within · GDPR · Valid from date of publication</span>
+  </p>
+</div>
+
+<div class="doc-content">
+
+  <div class="info-box">
+    <span data-lang="pl" class="active">Wiążąca wersja niniejszej Polityki prywatności jest wersją w języku polskim. Tłumaczenia na język czeski i angielski mają charakter wyłącznie informacyjny.</span>
+    <span data-lang="cs">Závaznou verzí těchto Zásad ochrany osobních údajů je polská verze. Překlady do češtiny a angličtiny mají pouze informativní charakter.</span>
+    <span data-lang="en">The binding version of this Privacy Policy is the Polish language version. Translations into Czech and English are for information purposes only.</span>
+  </div>
+
+  <!-- PL -->
+  <div data-lang="pl" class="active">
+    <p class="intro-p">Niniejszy dokument określa szczegółowo, w jaki sposób dane osobowe są gromadzone, przetwarzane i chronione zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 (RODO) oraz obowiązującymi polskimi przepisami o ochronie danych.</p>
+
+    <div class="doc-article">
+      <h2>1. Administrator danych osobowych</h2>
+      <p>Administratorem Państwa danych osobowych jest:</p>
+      <ul>
+        <li><strong>Imię i nazwisko / Nazwa firmy:</strong> Lukas Misiorowski</li>
+        <li><strong>Adres / Siedziba:</strong> Sosnowa 6D, Jagatowo, 83-010, Polska</li>
+        <li><strong>NIP:</strong> 6040272541</li>
+        <li class="nb"><strong>E-mail:</strong> <a href="mailto:lukasbiz@icloud.com">lukasbiz@icloud.com</a></li>
+      </ul>
+    </div>
+
+    <div class="doc-article">
+      <h2>2. Podstawy prawne i cele przetwarzania</h2>
+      <p>Gromadzimy i przetwarzamy Państwa dane osobowe w oparciu o następujące podstawy prawne:</p>
+      <ul>
+        <li><strong>Wykonanie umowy (art. 6 ust. 1 lit. b RODO):</strong> <em>Dane:</em> Imię, nazwisko, adres e-mail, numer telefonu. <em>Cel:</em> Rejestracja udziału, komunikacja związana z programem, organizacja zajęć retreatu oraz obsługa logistyczna.</li>
+        <li><strong>Obowiązki prawne i podatkowe (art. 6 ust. 1 lit. c RODO):</strong> <em>Dane:</em> Nazwa/imię do faktury, NIP, adres zamieszkania/siedziby. <em>Cel:</em> Wystawianie faktur i spełnienie ustawowych obowiązków księgowych, ewidencyjnych i podatkowych wynikających z polskiego prawa.</li>
+        <li><strong>Wyraźna zgoda na przetwarzanie danych szczególnej kategorii/o zdrowiu (art. 9 ust. 2 lit. a RODO):</strong> <em>Dane:</em> Podane przez Państwa informacje dotyczące stanu zdrowia, ograniczeń fizycznych, urazów, alergii lub innych istotnych dolegliwości. <em>Cel:</em> Zapewnienie bezpieczeństwa uczestników podczas ćwiczeń i dostosowanie aktywności do Państwa parametrów fizycznych.</li>
+        <li class="nb"><strong>Prawnie uzasadniony interes (art. 6 ust. 1 lit. f RODO):</strong> <em>Dane:</em> Historia kontaktów i dokumentacja umowna. <em>Cel:</em> Obrona przed potencjalnymi roszczeniami prawnymi lub dochodzenie roszczeń związanych z udziałem w programie.</li>
+      </ul>
+    </div>
+
+    <div class="doc-article">
+      <h2>3. Odbiorcy danych i podmioty przetwarzające</h2>
+      <p>Państwa dane nie będą sprzedawane ani wymieniane. Dostęp do nich mają wyłącznie upoważnione podmioty wspierające naszą działalność na podstawie formalnych umów powierzenia przetwarzania danych (DPA):</p>
+      <ul>
+        <li>Zewnętrzne biura rachunkowe/księgowe w Polsce</li>
+        <li>Dostawcy infrastruktury IT (np. serwery e-mail, chmury obliczeniowe, formularze rejestracyjne, bramki płatnicze)</li>
+        <li class="nb">Organy administracji państwowej (np. Urząd Skarbowy), jeśli wymagają tego obowiązujące przepisy</li>
+      </ul>
+    </div>
+
+    <div class="doc-article">
+      <h2>4. Przekazywanie danych do państw trzecich</h2>
+      <p>Jeśli zewnętrzni dostawcy oprogramowania lub usług (np. Google, Typeform) przetwarzają dane poza Europejskim Obszarem Gospodarczym (EOG), przekazywanie takie odbywa się wyłącznie do krajów zapewniających odpowiedni poziom ochrony lub w oparciu o Standardowe Klauzule Umowne UE (SCC) oraz ramy ochrony danych UE-USA (EU-U.S. Data Privacy Framework).</p>
+    </div>
+
+    <div class="doc-article">
+      <h2>5. Okres przechowywania danych</h2>
+      <ul>
+        <li><strong>Dane umowne:</strong> Przechowywane przez czas trwania retreatu, a następnie do upływu terminu przedawnienia roszczeń prawnych</li>
+        <li><strong>Dane podatkowe/finansowe:</strong> Przechowywane przez <strong>5 lat</strong> licząc od końca roku kalendarzowego, w którym powstał obowiązek podatkowy, zgodnie z wymogami polskiego prawa podatkowego</li>
+        <li><strong>Dane o zdrowiu (szczególnej kategorii):</strong> Usuwane lub trwale anonimizowane natychmiast po zakończeniu retreatu</li>
+        <li class="nb"><strong>Dane przetwarzane na podstawie zgody:</strong> Przechowywane do momentu wycofania przez Państwa zgody</li>
+      </ul>
+    </div>
+
+    <div class="doc-article">
+      <h2>6. Państwa prawa</h2>
+      <p>Zgodnie z RODO przysługują Państwu następujące prawa:</p>
+      <ul>
+        <li><strong>Prawo dostępu i sprostowania:</strong> Prawo do uzyskania informacji o przetwarzanych danych lub poprawienia nieścisłych informacji</li>
+        <li><strong>Prawo do usunięcia danych („prawo do bycia zapomnianym"):</strong> Prawo do żądania usunięcia danych, o ile nie mają zastosowania ustawowe obowiązki ich przechowywania (np. dokumentacja podatkowa)</li>
+        <li><strong>Prawo do wycofania zgody:</strong> Mogą Państwo w dowolnym momencie wycofać zgodę na przetwarzanie danych o zdrowiu lub danych w celach promocyjnych, co nie wpływa na zgodność z prawem przetwarzania przed jej wycofaniem</li>
+        <li><strong>Prawo do ograniczenia przetwarzania i wniesienia sprzeciwu:</strong> Prawo do sprzeciwu wobec przetwarzania opartego na prawnie uzasadnionym interesie lub żądania ograniczenia przetwarzania</li>
+        <li><strong>Prawo do przenoszenia danych:</strong> Prawo do otrzymania dostarczonych danych w ustrukturyzowanym, powszechnie używanym formacie</li>
+        <li class="nb"><strong>Prawo do wniesienia skargi:</strong> Mają Państwo prawo złożyć skargę do organu nadzorczego: <strong>Urząd Ochrony Danych Osobowych (UODO)</strong>, ul. Stawki 2, 00-193 Warszawa, Polska · <a href="https://uodo.gov.pl" target="_blank">uodo.gov.pl</a></li>
+      </ul>
+    </div>
+
+    <div class="doc-article">
+      <h2>7. Zautomatyzowane podejmowanie decyzji i profilowanie</h2>
+      <p>Państwa dane osobowe <strong>nie podlegają</strong> zautomatyzowanemu podejmowaniu decyzji ani profilowaniu.</p>
+    </div>
+  </div>
+
+  <!-- CS -->
+  <div data-lang="cs">
+    <p class="intro-p">Tento dokument podrobně popisuje, jaké osobní údaje shromažďujeme, jak s nimi nakládáme a jaká máte práva v souvislosti s Nařízením Evropského parlamentu a Rady (EU) 2016/679 (GDPR) a příslušnými polskými právními předpisy (RODO).</p>
+
+    <div class="doc-article">
+      <h2>1. Správce osobních údajů</h2>
+      <p>Správcem vašich osobních údajů je organizátor programu:</p>
+      <ul>
+        <li><strong>Jméno a příjmení / Název subjektu:</strong> Lukas Misiorowski</li>
+        <li><strong>Adresa / Sídlo:</strong> Sosnowa 6D, Jagatowo, 83-010, Polsko</li>
+        <li><strong>NIP (Daňové identifikační číslo):</strong> 6040272541</li>
+        <li class="nb"><strong>E-mail:</strong> <a href="mailto:lukasbiz@icloud.com">lukasbiz@icloud.com</a></li>
+      </ul>
+    </div>
+
+    <div class="doc-article">
+      <h2>2. Právní základy a účely zpracování údajů</h2>
+      <p>Vaše osobní údaje shromažďujeme a zpracováváme na základě těchto právních rámců:</p>
+      <ul>
+        <li><strong>Plnění smlouvy (čl. 6 odst. 1 písm. b) GDPR):</strong> <em>Údaje:</em> Jméno, příjmení, e-mailová adresa, telefonní číslo. <em>Účel:</em> Registrace vaší účasti, komunikace ohledně programu, organizace aktivit retreatu a zajištění logistiky.</li>
+        <li><strong>Zákonné a daňové povinnosti (čl. 6 odst. 1 písm. c) GDPR):</strong> <em>Údaje:</em> Fakturační jméno, daňové údaje, fakturační adresa. <em>Účel:</em> Vystavování faktur a plnění zákonných účetních, archivačních a daňových povinností podle polského práva.</li>
+        <li><strong>Výslovný souhlas se zpracováním citlivých údajů o zdraví (čl. 9 odst. 2 písm. a) GDPR):</strong> <em>Údaje:</em> Informace o zdravotním stavu, fyzických omezeních, zraněních, alergiích nebo jiných relevantních skutečnostech, které uvedete. <em>Účel:</em> Zajištění bezpečnosti účastníků během cvičení a aktivit retreatu a přizpůsobení programu vašim fyzickým možnostem.</li>
+        <li class="nb"><strong>Oprávněný zájem (čl. 6 odst. 1 písm. f) GDPR):</strong> <em>Údaje:</em> Historie komunikace a záznamy o smlouvě. <em>Účel:</em> Ochrana proti případným právním nárokům nebo uplatňování nároků souvisejících s účastí na retreatu.</li>
+      </ul>
+    </div>
+
+    <div class="doc-article">
+      <h2>3. Příjemci údajů a zpracovatelé třetích stran</h2>
+      <p>Vaše údaje nejsou prodávány ani poskytovány ke komerčním účelům. Přístup k nim mají pouze oprávnění zpracovatelé, kteří nám pomáhají s provozem na základě formálních smluv o zpracování údajů (DPA):</p>
+      <ul>
+        <li>Externí účetní a daňové kanceláře v Polsku</li>
+        <li>Poskytovatelé IT infrastruktury (např. cloudová úložiště, e-mailové servery, online registrační formuláře, platební brány)</li>
+        <li class="nb">Státní orgány (např. Urząd Skarbowy), pokud to vyžadují platné právní předpisy</li>
+      </ul>
+    </div>
+
+    <div class="doc-article">
+      <h2>4. Mezinárodní přenos dat (do třetích zemí)</h2>
+      <p>Pokud softwaroví partneři nebo poskytovatelé služeb (např. Google, Typeform apod.) zpracovávají data mimo Evropský hospodářský prostor (EHP), tyto přenosy probíhají výhradně do zemí zajišťujících odpovídající úroveň ochrany nebo na základě Standardních smluvních doložek EU (SCC) a rámce EU–US Data Privacy Framework.</p>
+    </div>
+
+    <div class="doc-article">
+      <h2>5. Doba uchovávání údajů</h2>
+      <ul>
+        <li><strong>Smluvní údaje:</strong> Uchovávají se po dobu trvání retreatu a následně do uplynutí promlčecích lhůt pro případné právní nároky</li>
+        <li><strong>Daňové a finanční údaje:</strong> Uchovávají se po dobu <strong>5 let</strong> od konce kalendářního roku, ve kterém vznikla daňová povinnost, jak vyžadují polské daňové předpisy</li>
+        <li><strong>Zdravotní a citlivé údaje:</strong> Jsou vymazány nebo trvale anonymizovány ihned po skončení retreatu</li>
+        <li class="nb"><strong>Údaje zpracovávané na základě souhlasu:</strong> Uchovávají se do doby, než svůj souhlas odvoláte</li>
+      </ul>
+    </div>
+
+    <div class="doc-article">
+      <h2>6. Vaše práva</h2>
+      <p>Podle GDPR máte v souvislosti se zpracováním osobních údajů následující práva:</p>
+      <ul>
+        <li><strong>Právo na přístup a opravu:</strong> Můžete požádat o podrobnosti o zpracovávaných údajích nebo o opravu nepřesných informací</li>
+        <li><strong>Právo na výmaz („právo být zapomenut"):</strong> Můžete požádat o smazání údajů, pokud se na ně nevztahují zákonné povinnosti uchovávání (např. účetní záznamy)</li>
+        <li><strong>Právo odvolat souhlas:</strong> Souhlas se zpracováním zdravotních nebo propagačních údajů můžete kdykoliv odvolat, aniž by tím byla dotčena zákonnost zpracování před jeho odvoláním</li>
+        <li><strong>Právo na omezení zpracování a vznesení námitky:</strong> Můžete namítat proti zpracování založenému na oprávněném zájmu nebo požadovat omezení zpracování</li>
+        <li><strong>Právo na přenositelnost údajů:</strong> Můžete požádat o předání poskytnutých údajů ve strukturovaném, běžně používaném formátu</li>
+        <li class="nb"><strong>Právo podat stížnost:</strong> Máte právo podat stížnost u dozorového úřadu: <strong>Urząd Ochrony Danych Osobowych (UODO)</strong>, ul. Stawki 2, 00-193 Varšava, Polsko · <a href="https://uodo.gov.pl" target="_blank">uodo.gov.pl</a></li>
+      </ul>
+    </div>
+
+    <div class="doc-article">
+      <h2>7. Automatizované rozhodování a profilování</h2>
+      <p>Vaše osobní údaje <strong>nepodléhají</strong> žádnému automatizovanému rozhodování ani profilování.</p>
+    </div>
+  </div>
+
+  <!-- EN -->
+  <div data-lang="en">
+    <p class="intro-p">This document details how personal data is collected, processed, and protected in accordance with Regulation (EU) 2016/679 of the European Parliament and of the Council (GDPR / RODO) and applicable Polish data protection regulations.</p>
+
+    <div class="doc-article">
+      <h2>1. Data Controller</h2>
+      <p>The administrator of your personal data is:</p>
+      <ul>
+        <li><strong>Full Name / Business Name:</strong> Lukas Misiorowski</li>
+        <li><strong>Address / Registered Office:</strong> Sosnowa 6D, Jagatowo, 83-010, Poland</li>
+        <li><strong>NIP (Tax ID):</strong> 6040272541</li>
+        <li class="nb"><strong>Email:</strong> <a href="mailto:lukasbiz@icloud.com">lukasbiz@icloud.com</a></li>
+      </ul>
+    </div>
+
+    <div class="doc-article">
+      <h2>2. Legal Bases and Purposes of Processing</h2>
+      <p>We collect and process your personal data under the following legal frameworks:</p>
+      <ul>
+        <li><strong>Execution of Contract (Art. 6(1)(b) GDPR):</strong> <em>Data:</em> Name, surname, email address, phone number. <em>Purpose:</em> Registering your participation, program-related communication, organization of retreat sessions, and handling logistics.</li>
+        <li><strong>Legal &amp; Tax Obligations (Art. 6(1)(c) GDPR):</strong> <em>Data:</em> Billing name, tax identification details, residence/invoicing address. <em>Purpose:</em> Issuing invoices and fulfilling statutory accounting, record-keeping, and tax duties under Polish law.</li>
+        <li><strong>Explicit Consent for Health / Special Category Data (Art. 9(2)(a) GDPR):</strong> <em>Data:</em> Information regarding health status, physical limitations, injuries, allergies, or relevant conditions provided by you. <em>Purpose:</em> Ensuring participant safety during retreat activities and adapting activities to your physical parameters.</li>
+        <li class="nb"><strong>Legitimate Interest (Art. 6(1)(f) GDPR):</strong> <em>Data:</em> Contact history and contractual records. <em>Purpose:</em> Defense against potential legal claims or establishing claims related to retreat participation.</li>
+      </ul>
+    </div>
+
+    <div class="doc-article">
+      <h2>3. Data Recipients &amp; Third-Party Processors</h2>
+      <p>Your data will not be sold or traded. Access is strictly limited to authorized processors supporting our operations under formal data processing agreements (DPA):</p>
+      <ul>
+        <li>External accounting/bookkeeping services in Poland</li>
+        <li>IT infrastructure providers (e.g., cloud storage, email servers, online registration forms, payment gateways)</li>
+        <li class="nb">Public authorities (e.g., Urząd Skarbowy) if mandated by applicable laws</li>
+      </ul>
+    </div>
+
+    <div class="doc-article">
+      <h2>4. Cross-Border Data Transfers</h2>
+      <p>If any third-party software or service providers (e.g., Google, Typeform) process data outside the European Economic Area (EEA), such transfers occur exclusively to countries offering an adequate level of protection or governed by EU Standard Contractual Clauses (SCCs) and the EU-U.S. Data Privacy Framework.</p>
+    </div>
+
+    <div class="doc-article">
+      <h2>5. Retention Period</h2>
+      <ul>
+        <li><strong>Contractual Data:</strong> Retained for the duration of the retreat and until the limitation period for legal claims expires</li>
+        <li><strong>Tax / Financial Data:</strong> Retained for <strong>5 years</strong> starting from the end of the calendar year in which the tax obligation arose, as required by Polish tax legislation</li>
+        <li><strong>Health &amp; Special Category Data:</strong> Erased or permanently anonymized immediately following the conclusion of the retreat</li>
+        <li class="nb"><strong>Consent-based Data:</strong> Retained until you withdraw your consent</li>
+      </ul>
+    </div>
+
+    <div class="doc-article">
+      <h2>6. Your Rights</h2>
+      <p>Under RODO / GDPR, you hold the following rights:</p>
+      <ul>
+        <li><strong>Right of Access &amp; Rectification:</strong> Request details of processed data or correct inaccurate information</li>
+        <li><strong>Right to Erasure ("Right to be Forgotten"):</strong> Request deletion of data, provided no statutory retention obligations (e.g., tax records) apply</li>
+        <li><strong>Right to Withdraw Consent:</strong> You can withdraw consent for processing health or promotional data at any time without affecting the legality of processing prior to withdrawal</li>
+        <li><strong>Right to Restriction &amp; Object:</strong> Object to processing based on legitimate interests or request restricted processing</li>
+        <li><strong>Right to Data Portability:</strong> Request transfer of provided data in a structured, standard format</li>
+        <li class="nb"><strong>Right to Lodge a Complaint:</strong> File a complaint with the supervisory authority: <strong>Urząd Ochrony Danych Osobowych (UODO)</strong>, ul. Stawki 2, 00-193 Warsaw, Poland · <a href="https://uodo.gov.pl" target="_blank">uodo.gov.pl</a></li>
+      </ul>
+    </div>
+
+    <div class="doc-article">
+      <h2>7. Automated Decision-Making &amp; Profiling</h2>
+      <p>Your personal data will <strong>not</strong> be subjected to automated decision-making or profiling.</p>
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 48px;">
+    <a href="index.html" class="back-btn">
+      <span data-lang="pl" class="active">← Powrót do broszury</span>
+      <span data-lang="cs">← Zpět na brožuru</span>
+      <span data-lang="en">← Back to brochure</span>
+    </a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-logo">Camino Within</div>
+  <div style="margin: 0 0 16px 0; display: flex; justify-content: center;">
+    <svg width="32" height="32" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(90)">
+      <line x1="35" y1="64" x2="10" y2="45" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="35" y1="63" x2="6"  y2="30" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="35" y1="63" x2="10" y2="16" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="35" y1="62" x2="22" y2="7"  stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="35" y1="62" x2="35" y2="4"  stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="35" y1="62" x2="48" y2="7"  stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="35" y1="63" x2="60" y2="16" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="35" y1="63" x2="64" y2="30" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="35" y1="64" x2="60" y2="46" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="25" y1="61" x2="45" y2="61" stroke="#b8960c" stroke-width="1.6" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <p class="footer-sub">
+    <span data-lang="pl" class="active">Październik 2026 · Hiszpania</span>
+    <span data-lang="cs">Říjen 2026 · Španělsko</span>
+    <span data-lang="en">October 2026 · Spain</span>
+  </p>
+  <p style="font-size: 12px; color: #ccc; margin-top: 16px;">Lukas Misiorowski</p>
+</footer>
+
+<div class="legal-bar">
+  <p>Łukasz Misiorowski · Sosnowa 6D, Jagatowo, 83-010, Polska · NIP: 6040272541 · <a href="mailto:lukasbiz@icloud.com">lukasbiz@icloud.com</a></p>
+  <p style="margin-top: 4px;">
+    <span data-lang="pl" class="active">Udział podlega <a href="vop.html" class="gl">Regulaminowi</a> oraz <a href="gdpr.html" class="gl">Polityce prywatności</a>.</span>
+    <span data-lang="cs">Účast podléhá <a href="vop.html" class="gl">Všeobecným obchodním podmínkám</a> a <a href="gdpr.html" class="gl">Zásadám ochrany osobních údajů</a>.</span>
+    <span data-lang="en">Participation is subject to our <a href="vop.html" class="gl">General Terms and Conditions</a> and <a href="gdpr.html" class="gl">Privacy Policy</a>.</span>
+  </p>
+</div>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.classList.toggle('active', el.getAttribute('data-lang') === lang);
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('onclick').includes("'" + lang + "'"));
+    });
+    document.documentElement.setAttribute('lang', lang);
+    localStorage.setItem('gdpr_lang', lang);
+  }
+  (function() {
+    const saved = localStorage.getItem('gdpr_lang');
+    if (saved && saved !== 'pl') setLang(saved);
+  })();
+</script>
+</body>
+</html>

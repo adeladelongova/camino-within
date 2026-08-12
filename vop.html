@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regulamin · Terms and Conditions · VOP — Camino Within</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --gold: #b8960c;
+    --gold-lt: #e8d48a;
+    --teal: #2a5a6b;
+    --cream: #faf7f2;
+    --dark: #1a1a1a;
+    --mid: #4a4a4a;
+    --muted: #888;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Montserrat', sans-serif;
+  }
+  html, body { scroll-behavior: smooth; }
+  body { font-family: var(--sans); font-size: 15px; line-height: 1.8; color: var(--dark); background: var(--cream); }
+
+  .lang-switcher { position: fixed; top: 24px; right: 24px; z-index: 9999; display: flex; gap: 6px; }
+  .lang-btn { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; background: var(--teal); color: #fff; border: none; cursor: pointer; padding: 10px 16px; border-radius: 2px; transition: background 0.2s; }
+  .lang-btn:hover { background: #1e4352; }
+  .lang-btn.active { background: var(--gold); }
+  [data-lang] { display: none; }
+  [data-lang].active { display: block; }
+
+  .doc-header { background: #0d1f25; padding: 80px 40px 60px; text-align: center; }
+  .doc-logo { font-family: var(--serif); font-size: 18px; font-weight: 300; font-style: italic; color: var(--gold-lt); letter-spacing: 0.1em; display: block; margin-bottom: 32px; text-decoration: none; }
+  .doc-header h1 { font-family: var(--serif); font-size: clamp(32px, 5vw, 52px); font-weight: 300; color: #fff; line-height: 1.2; margin-bottom: 12px; }
+  .doc-header h1 em { font-style: italic; color: var(--gold-lt); }
+  .doc-header-sub { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 16px; }
+  .gold-line { width: 48px; height: 2px; background: var(--gold); margin: 24px auto; opacity: 0.6; }
+
+  .doc-content { max-width: 820px; margin: 0 auto; padding: 60px 40px 80px; }
+  .info-box { background: #fff; border-left: 3px solid var(--gold); padding: 18px 24px; margin-bottom: 48px; font-size: 13px; color: var(--mid); line-height: 1.8; font-style: italic; }
+
+  .doc-article { margin-bottom: 48px; }
+  .doc-article h2 { font-family: var(--serif); font-size: 20px; font-weight: 600; color: var(--teal); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid rgba(42,90,107,0.15); line-height: 1.3; }
+  .doc-article p { font-size: 14px; line-height: 1.9; color: var(--mid); margin-bottom: 10px; }
+  .doc-article ul { list-style: none; margin: 12px 0; }
+  .doc-article ul li { font-size: 14px; line-height: 1.9; color: var(--mid); padding: 6px 0 6px 20px; border-bottom: 1px solid rgba(0,0,0,0.05); position: relative; }
+  .doc-article ul li::before { content: '—'; color: var(--gold); position: absolute; left: 0; }
+  .doc-article strong { color: var(--dark); font-weight: 600; }
+  .doc-article a { color: var(--teal); text-decoration: none; }
+  .doc-article a:hover { text-decoration: underline; }
+
+  .back-btn { display: inline-block; margin-top: 16px; font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; background: var(--teal); color: #fff; border: none; cursor: pointer; padding: 14px 32px; border-radius: 2px; text-decoration: none; transition: background 0.2s; }
+  .back-btn:hover { background: #1e4352; }
+
+  @media (max-width: 640px) {
+    .doc-header { padding: 60px 20px 40px; }
+    .doc-content { padding: 40px 20px 60px; }
+    .lang-switcher { top: 12px; right: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="lang-switcher">
+  <button class="lang-btn active" onclick="setLang('pl')">PL</button>
+  <button class="lang-btn" onclick="setLang('cs')">CZ</button>
+  <button class="lang-btn" onclick="setLang('en')">EN</button>
+</div>
+
+<div class="doc-header">
+  <a href="index.html" class="doc-logo">Camino Within</a>
+  <h1>
+    <span data-lang="pl" class="active">Regulamin<br><em>organizacji retreatu</em></span>
+    <span data-lang="cs">Všeobecné obchodní<br><em>podmínky</em></span>
+    <span data-lang="en">General Terms<br><em>and Conditions</em></span>
+  </h1>
+  <div class="gold-line"></div>
+  <p class="doc-header-sub">
+    <span data-lang="pl" class="active">Camino Within · Lukas Misiorowski · Obowiązuje od dnia publikacji</span>
+    <span data-lang="cs">Camino Within · Lukas Misiorowski · Platné od zveřejnění na webu</span>
+    <span data-lang="en">Camino Within · Lukas Misiorowski · Valid from date of publication</span>
+  </p>
+</div>
+
+<div class="doc-content">
+
+  <div class="info-box">
+    <span data-lang="pl" class="active">Wiążąca wersja niniejszego Regulaminu jest wersją w języku polskim. Tłumaczenia na język czeski i angielski mają charakter wyłącznie informacyjny.</span>
+    <span data-lang="cs">Závaznou verzí těchto VOP je polská verze. Překlady do češtiny a angličtiny mají pouze informativní charakter.</span>
+    <span data-lang="en">The binding version of these Terms and Conditions is the Polish language version. Translations into Czech and English are for information purposes only.</span>
+  </div>
+
+  <!-- PL -->
+  <div data-lang="pl" class="active">
+    <div class="doc-article">
+      <h2>1. Postanowienia ogólne i przedmiot umowy</h2>
+      <p>1.1. Niniejszy Regulamin określa wzajemne prawa i obowiązki pomiędzy organizatorem a uczestnikiem retreatu.</p>
+      <p>1.2. <strong>Organizator:</strong> Lukas Misiorowski, prowadzący działalność gospodarczą w Rzeczypospolitej Polskiej, z siedzibą pod adresem: Sosnowa 6D, Jagatowo, 83-010, Polska, NIP: 6040272541, e-mail: <a href="mailto:lukasbiz@icloud.com">lukasbiz@icloud.com</a> (dalej jako „Organizator").</p>
+      <p>1.3. <strong>Uczestnik:</strong> Osoba fizyczna (pełnoletnia), która pomyślnie wypełni i prześle elektroniczny formularz rejestracyjny oraz opłaci opłatę za retreat (dalej jako „Uczestnik").</p>
+      <p>1.4. Poprzez przesłanie formularza rejestracyjnego i zaznaczenie odpowiedniego pola Uczestnik potwierdza, że dokładnie zapoznał się z niniejszym Regulaminem, rozumie go i akceptuje bez zastrzeżeń. Czynność ta stanowi zawarcie umowy o świadczenie usług.</p>
+      <p>1.5. <strong>Przedmiot umowy:</strong> Przedmiotem umowy jest wyłącznie zapewnienie udziału w programie doświadczalnym i zajęciach retreatu „Camino Within" (dalej jako „Program"). Organizator występuje w roli facylitatora programu edukacyjnego rozwoju osobistego, a nie jako przewodnik turystyczny w rozumieniu przepisów o usługach turystycznych. Organizator nie zapewnia zakwaterowania ani transportu. Uczestnik przyjmuje do wiadomości, że zakwaterowanie, wyżywienie oraz transport organizuje i opłaca we własnym zakresie, na własny koszt i odpowiedzialność. Wszelkie informacje dotyczące zakwaterowania lub transportu dostarczone przez Organizatora mają charakter wyłącznie informacyjny. Umowa dotycząca zakwaterowania lub transportu zawierana jest wyłącznie pomiędzy Uczestnikiem a odpowiednim zewnętrznym dostawcą usług.</p>
+    </div>
+    <div class="doc-article">
+      <h2>2. Zawarcie umowy i prawa konsumenta</h2>
+      <p>2.1. Umowa między Organizatorem a Uczestnikiem powstaje z chwilą potwierdzenia rejestracji przez Organizatora oraz opłacenia uzgodnionej zaliczki.</p>
+      <p>2.2. <strong>Informacja dla konsumenta (Odstąpienie od umowy):</strong> Ze względu na charakter usług (świadczenie usług związanych z działalnością rekreacyjną z oznaczonym dniem świadczenia), <strong>nie ma możliwości odstąpienia od umowy bez podania przyczyny w terminie 14 dni</strong>, jak ma to miejsce w przypadku zwykłych sklepów internetowych (zgodnie z odpowiednimi przepisami polskiego i europejskiego prawa konsumenckiego). Anulowanie udziału podlega wyłącznie warunkom rezygnacji określonym w art. 4 niniejszego Regulaminu.</p>
+    </div>
+    <div class="doc-article">
+      <h2>3. Ceny i warunki płatności</h2>
+      <p>3.1. Ceny retreatu są ostateczne i ustalane w zależności od całkowitej liczby uczestników:</p>
+      <ul>
+        <li><strong>600 EUR</strong> za osobę w przypadku udziału 4 i więcej osób</li>
+        <li><strong>700 EUR</strong> za osobę w przypadku udziału 3 osób</li>
+      </ul>
+      <p>3.2. <strong>Harmonogram płatności:</strong></p>
+      <ul>
+        <li><strong>Zaliczka:</strong> Przy rejestracji Uczestnik jest zobowiązany do uiszczenia zaliczki w wysokości 300 EUR</li>
+        <li><strong>Dopłata:</strong> Pozostała część ceny retreatu jest płatna najpóźniej 30 dni przed rozpoczęciem retreatu. Instrukcje dotyczące płatności Uczestnik otrzyma drogą e-mailową</li>
+      </ul>
+      <p>3.3. Wszystkie płatności odbywają się w EUR (lub w uzgodnionej równowartości w PLN) na rachunek bankowy Organizatora. W przypadku zwłoki w opłaceniu dopłaty Organizator ma prawo odstąpić od umowy i zaoferować miejsce osobie z listy rezerwowej.</p>
+      <p>3.4. Momentem decydującym o ustaleniu ostatecznej liczby uczestników i wynikającej z tego ceny retreatu (zgodnie z art. 3.1) jest termin płatności dopłaty, tj. 30 dni przed rozpoczęciem retreatu. Jeśli do tego terminu zgłosi się 4 lub więcej uczestników, dla wszystkich obowiązuje obniżona cena 600 EUR. Jeśli w tym terminie zgłoszonych będzie dokładnie 3 uczestników, cena wynosi 700 EUR za osobę. Jeśli do terminu płatności dopłaty zgłosi się mniej niż 3 uczestników, Organizator zastrzega sobie prawo do odwołania retreatu zgodnie z art. 5.1 i zwrotu 100% wszystkich wpłaconych zaliczek. Ewentualne zmiany w liczbie uczestników po tej dacie (np. późniejsze rezygnacje lub storno) nie będą już uwzględniane, a cena nie ulega retroaktywnej zmianie.</p>
+    </div>
+    <div class="doc-article">
+      <h2>4. Warunki rezygnacji (Odstąpienie przez Uczestnika)</h2>
+      <p>4.1. Uczestnik może w każdej chwili zrezygnować z udziału w retreat, wyłącznie w formie pisemnej (e-mailem na adres kontaktowy Organizatora).</p>
+      <p>4.2. W przypadku rezygnacji przez Uczestnika stosuje się następujące opłaty za rezygnację:</p>
+      <ul>
+        <li><strong>Więcej niż 30 dni przed rozpoczęciem retreatu:</strong> Zwrot zaliczki pomniejszony o opłatę administracyjną w wysokości 50 EUR</li>
+        <li><strong>Od 30 do 14 dni przed rozpoczęciem retreatu:</strong> Opłata za rezygnację wynosi 300 EUR (zaliczka przepada)</li>
+        <li><strong>Mniej niż 14 dni przed rozpoczęciem retreatu:</strong> Opłata za rezygnację wynosi 100% całkowitej ceny retreatu</li>
+      </ul>
+      <p>4.3. <strong>Osoba zastępcza:</strong> Uczestnik może w każdej chwili bez opłaty za rezygnację wysłać za siebie osobę zastępczą, pod warunkiem wcześniejszego zgłoszenia Organizatorowi i podania danych nowego uczestnika.</p>
+    </div>
+    <div class="doc-article">
+      <h2>5. Odwołanie wydarzenia lub zmiany ze strony Organizatora</h2>
+      <p>5.1. Organizator zastrzega sobie prawo do odwołania retreatu w przypadku nieosiągnięcia minimalnej liczby uczestników, działania Siły Wyższej (Force Majeure) lub z nieprzewidzianych powodów operacyjnych.</p>
+      <p>5.2. W przypadku odwołania retreatu przez Organizatora Uczestnikowi zostanie zwrócone 100% wpłaconej kwoty. Organizator nie ponosi odpowiedzialności za dodatkowe koszty poniesione przez Uczestnika (np. bilety lotnicze, transport).</p>
+      <p>5.3. Organizator zastrzega sobie prawo do drobnych modyfikacji programu, harmonogramu lub obsady trenerskiej ze względów operacyjnych.</p>
+      <p>5.4. <strong>Zmiany w programie z przyczyn zewnętrznych:</strong> Organizator zastrzega sobie prawo do operacyjnej modyfikacji trasy, harmonogramu lub programu w zależności od aktualnych warunków pogodowych, zagrożeń bezpieczeństwa lub kondycji grupy. Takie modyfikacje nie stanowią podstawy do odstąpienia od umowy ani zwrotu pieniędzy.</p>
+    </div>
+    <div class="doc-article">
+      <h2>6. Stan zdrowia, bezpieczeństwo i wyłączenie odpowiedzialności</h2>
+      <p>6.1. <strong>Zdolność zdrowotna:</strong> Uczestnik oświadcza, że jest pod względem fizycznym i psychicznym w pełni zdolny do udziału w retreacie i bierze w nim udział na własne ryzyko.</p>
+      <p>6.2. <strong>Obowiązek informacyjny:</strong> Jeśli Uczestnik posiada jakiekolwiek ograniczenia zdrowotne, urazy, choroby przewlekłe, alergie, przyjmuje leki lub jest w ciąży, ma obowiązek poinformować o tym Organizatora z góry w formularzu rejestracyjnym.</p>
+      <p>6.3. Organizator nie ponosi odpowiedzialności za szkody, kradzieże lub uszczerbki na zdrowiu, z wyjątkiem szkód wynikających z winy umyślnej lub niedbalstwa bezpośrednio przypisywalnego Organizatorowi, bądź w sposób wymagany przez obowiązujące bezwzględnie wiążące przepisy o ochronie konsumentów.</p>
+      <p>6.4. <strong>Odpowiedzialność za zakwaterowanie i rzeczy osobiste:</strong> Organizator nie ponosi odpowiedzialności za jakość zakwaterowania, transport ani utratę lub uszkodzenie rzeczy osobistych Uczestnika.</p>
+      <p>6.5. <strong>Wykluczenie z retreatu:</strong> Organizator ma prawo do natychmiastowego wykluczenia Uczestnika z retreatu bez prawa do zwrotu kosztów w przypadku, gdy zachowanie Uczestnika, spożycie alkoholu/substancji odurzających, ignorowanie instrukcji bezpieczeństwa lub zakłócanie programu w sposób poważny zagraża bezpieczeństwu, zdrowiu, mieniu lub spokój innych uczestników bądź Organizatora.</p>
+      <p>6.6. <strong>Sprzęt i przygotowanie fizyczne:</strong> Uczestnik ponosi pełną odpowiedzialność za dobór odzieży, obuwia i sprzętu adekwatnego do charakteru retreatu i warunków pogodowych.</p>
+      <p>6.7. <strong>Ocena zdolności zdrowotnej:</strong> Organizator zastrzega sobie prawo do odmowy udziału Uczestnika, jeśli jego stan zdrowia mógłby zagrażać jego własnemu bezpieczeństwu lub bezpieczeństwu grupy. W takim przypadku cała wpłacona kwota zostanie w pełni zwrócona.</p>
+    </div>
+    <div class="doc-article">
+      <h2>7. Ubezpieczenie</h2>
+      <p>7.1. Cena retreatu nie obejmuje żadnego ubezpieczenia podróżnego ani ubezpieczenia od następstw nieszczęśliwych wypadków (NNW).</p>
+      <p>7.2. Uczestnik ponosi pełną odpowiedzialność za wykupienie własnego, odpowiedniego ubezpieczenia (w tym kosztów leczenia za granicą, ubezpieczenia NNW oraz ubezpieczenia od odpowiedzialności cywilnej za szkody wyrządzone osobom trzecim) ważnego na czas trwania retreatu.</p>
+    </div>
+    <div class="doc-article">
+      <h2>8. Prawa autorskie, materiały fotograficzne i wideo</h2>
+      <p>8.1. Wszelkie materiały, program oraz know-how prezentowane podczas retreatu stanowią własność intelektualną Organizatora lub prowadzących, a ich nagrywanie, rozpowszechnianie lub komercyjne wykorzystywanie bez uprzedniej zgody pisemnej jest zabronione.</p>
+      <p>8.2. Podczas retreatu mogą być wykonywane zdjęcia i nagrania wideo w celach promocyjnych Organizatora wyłącznie na podstawie wyraźnej, odrębnej zgody udzielonej przez Uczestnika w formularzu rejestracyjnym.</p>
+    </div>
+    <div class="doc-article">
+      <h2>9. Ochrona danych osobowych (RODO/GDPR)</h2>
+      <p>9.1. Organizator przetwarza dane osobowe Uczestników zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 (RODO) oraz właściwymi polskimi przepisami.</p>
+      <p>9.2. Szczegółowe informacje dotyczące przetwarzania danych osobowych znajdują się w osobnym dokumencie <strong>Polityka prywatności</strong>, dostępnym w ramach formularza rejestracyjnego.</p>
+    </div>
+    <div class="doc-article">
+      <h2>11. Reklamacje</h2>
+      <p>11.1. Uczestnik ma prawo złożyć reklamację dotyczącą realizacji usług objętych niniejszym Regulaminem.</p>
+      <p>11.2. Reklamację należy złożyć wyłącznie w formie pisemnej, na adres e-mail: <a href="mailto:lukasbiz@icloud.com">lukasbiz@icloud.com</a>. Reklamacja powinna zawierać imię i nazwisko Uczestnika, opis zdarzenia będącego przedmiotem reklamacji oraz oczekiwany sposób jej rozpatrzenia.</p>
+      <p>11.3. Organizator rozpatruje reklamację i udziela odpowiedzi w terminie <strong>14 dni</strong> od daty jej otrzymania. Brak odpowiedzi w tym terminie oznacza uznanie reklamacji za zasadną.</p>
+    </div>
+
+    <div class="doc-article">
+      <h2>10. Postanowienia końcowe</h2>
+      <p>10.1. Niniejszy Regulamin wchodzi w życie z dniem opublikowania na stronie internetowej retreatu.</p>
+      <p>10.2. Stosunki prawne nieuregulowane wyraźnie w niniejszym Regulaminie podlegają prawu Rzeczypospolitej Polskiej. Wszelkie ewentualne spory będą rozstrzygane przez właściwe sądy polskie.</p>
+    </div>
+  </div>
+
+  <!-- CS -->
+  <div data-lang="cs">
+    <div class="doc-article">
+      <h2>1. Úvodní ustanovení a předmět smlouvy</h2>
+      <p>1.1. Tyto Všeobecné obchodní podmínky (dále jen „VOP") upravují vzájemná práva a povinnosti mezi organizátorem a účastníkem retreatu.</p>
+      <p>1.2. <strong>Organizátor:</strong> Lukas Misiorowski, podnikající v Polské republice, se sídlem Sosnowa 6D, Jagatowo, 83-010, Polsko, NIP: 6040272541, e-mail: <a href="mailto:lukasbiz@icloud.com">lukasbiz@icloud.com</a> (dále jen „Organizátor").</p>
+      <p>1.3. <strong>Účastník:</strong> Fyzická osoba (plnoletá), která úspěšně vyplní a odešle elektronický registrační formulář a uhradí poplatek za retreat (dále jen „Účastník").</p>
+      <p>1.4. Odesláním registračního formuláře a zaškrtnutím příslušného políčka Účastník potvrzuje, že se důkladně seznámil s těmito VOP, rozumí jim a bez výhrad s nimi souhlasí. Tímto úkonem je uzavřena smlouva o poskytnutí služeb.</p>
+      <p>1.5. <strong>Předmět smlouvy:</strong> Předmětem smlouvy je výhradně poskytnutí účasti na zážitkovém programu a aktivitách retreatu „Camino Within" (dále jen „Program"). Organizátor vystupuje v roli facilitátora vzdělávacího programu osobního rozvoje, nikoli jako turistický průvodce ve smyslu zákona o cestovním ruchu. Organizátor neposkytuje ubytování ani dopravu. Účastník bere na vědomí, že si ubytování, stravování a dopravu zajišťuje a hradí zcela sám, na vlastní náklady a odpovědnost. Jakékoliv informace týkající se ubytování či dopravy poskytnuté Organizátorem jsou pouze informativního charakteru. Smlouva o ubytování nebo dopravě je uzavřena výhradně mezi Účastníkem a příslušným třetím poskytovatelem.</p>
+    </div>
+    <div class="doc-article">
+      <h2>2. Uzavření smlouvy a spotřebitelská práva</h2>
+      <p>2.1. Smlouva mezi Organizátorem a Účastníkem vzniká okamžikem potvrzení registrace ze strany Organizátora a uhrazením sjednané zálohy.</p>
+      <p>2.2. <strong>Upozornění pro spotřebitele (Odstoupení od smlouvy):</strong> Vzhledem k charakteru služeb <strong>nelze od smlouvy odstoupit bez udání důvodu ve 14denní lhůtě</strong>, jak je tomu u běžných e-shopů. Zrušení účasti se řídí výhradně storno podmínkami dle čl. 4 těchto VOP.</p>
+    </div>
+    <div class="doc-article">
+      <h2>3. Ceny a platební podmínky</h2>
+      <p>3.1. Ceny retreatu jsou konečné a jsou stanoveny v závislosti na celkovém počtu účastníků:</p>
+      <ul>
+        <li><strong>600 EUR</strong> na osobu v případě účasti 4 a více osob</li>
+        <li><strong>700 EUR</strong> na osobu v případě účasti 3 osob</li>
+      </ul>
+      <p>3.2. <strong>Platební harmonogram:</strong></p>
+      <ul>
+        <li><strong>Záloha:</strong> Při registraci je Účastník povinen uhradit zálohu ve výši 300 EUR</li>
+        <li><strong>Doplatek:</strong> Zbývající část ceny retreatu je splatná nejpozději 30 dní před začátkem retreatu. Pokyny k platbě obdrží Účastník e-mailem</li>
+      </ul>
+      <p>3.3. Všechny platby probíhají v EUR (případně v dohodnuté ekvivalentní částce v PLN) na bankovní účet Organizátora. V případě prodlení s úhradou doplatku má Organizátor právo od smlouvy odstoupit.</p>
+      <p>3.4. Rozhodným okamžikem pro stanovení konečné ceny je den splatnosti doplatku. Pokud se přihlásí méně než 3 účastníci, Organizátor si vyhrazuje právo retreat zrušit a vrátit 100 % všech uhrazených záloh.</p>
+    </div>
+    <div class="doc-article">
+      <h2>4. Storno podmínky (Odstoupení ze strany účastníka)</h2>
+      <p>4.1. Účastník může svou účast na retreatu kdykoliv zrušit, a to výhradně písemnou formou (e-mailem na kontakt Organizátora).</p>
+      <p>4.2. Při zrušení účasti ze strany Účastníka se uplatňují následující storno poplatky:</p>
+      <ul>
+        <li><strong>Více než 30 dní před začátkem retreatu:</strong> Vrácení zálohy minus administrativní poplatek 50 EUR</li>
+        <li><strong>30 až 14 dní před začátkem retreatu:</strong> Storno poplatek 300 EUR (záloha propadá)</li>
+        <li><strong>Méně než 14 dní před začátkem retreatu:</strong> Storno poplatek 100 % z celkové ceny retreatu</li>
+      </ul>
+      <p>4.3. <strong>Náhradník:</strong> Účastník může za sebe kdykoliv bez storno poplatku poslat náhradníka. Tuto změnu je povinen Organizátorovi nahlásit předem a doložit kontaktní a identifikační údaje nového účastníka.</p>
+    </div>
+    <div class="doc-article">
+      <h2>5. Zrušení akce nebo změna ze strany Organizátora</h2>
+      <p>5.1. Organizátor si vyhrazuje právo zrušit retreat v případě nenaplnění minimální kapacity, zásahu Vyšší moci (Force Majeure) nebo z neočekávaných provozních důvodů.</p>
+      <p>5.2. V případě zrušení retreatu ze strany Organizátora bude Účastníkovi vrácena 100 % uhrazené částky. Organizátor nenese odpovědnost za dodatečné náklady Účastníka.</p>
+      <p>5.3. Organizátor si vyhrazuje právo na drobné úpravy programu, harmonogramu nebo lektorského obsazení z provozních důvodů.</p>
+      <p>5.4. <strong>Změny v programu v důsledku vnějších vlivů:</strong> Organizátor si vyhrazuje právo na operativní úpravu trasy, harmonogramu nebo programu v závislosti na aktuálních podmínkách. Takové úpravy nezakládají právo Účastníka na odstoupení od smlouvy ani na vrácení peněz.</p>
+    </div>
+    <div class="doc-article">
+      <h2>6. Zdravotní stav, bezpečnost a vyloučení odpovědnosti</h2>
+      <p>6.1. <strong>Zdravotní způsobilost:</strong> Účastník prohlašuje, že je po fyzické i psychické stránce plně způsobilý k účasti na retreatu a že se jej účastní na vlastní nebezpečí.</p>
+      <p>6.2. <strong>Oznamovací povinnost:</strong> Pokud má Účastník jakákoliv zdravotní omezení, chronické nemoci, alergie nebo užívá léky, je povinen o tom Organizátora informovat předem v registračním formuláři.</p>
+      <p>6.3. Organizátor nenese odpovědnost za škody, krádeže nebo úrazy, s výjimkou škod způsobených úmyslně nebo nedbalostí přímo připisovatelnou Organizátorovi.</p>
+      <p>6.4. <strong>Odpovědnost za ubytování a osobní věci:</strong> Organizátor nenese odpovědnost za kvalitu ubytování, dopravu ani za ztrátu, poškození nebo krádež osobních věcí Účastníka.</p>
+      <p>6.5. <strong>Vyloučení z retreatu:</strong> Organizátor je oprávněn okamžitě vyloučit Účastníka z retreatu bez nároku na vrácení peněz, pokud svým chováním nebo požitím alkoholu/omamných látek ohrožuje ostatní účastníky.</p>
+      <p>6.6. <strong>Vybavení a fyzická příprava:</strong> Účastník nese plnou odpovědnost za zvolené oblečení, obuv a vybavení odpovídající charakteru retreatu.</p>
+      <p>6.7. <strong>Posouzení zdravotní způsobilosti:</strong> Organizátor si vyhrazuje právo odmítnout účast Účastníka, pokud jeho zdravotní stav by mohl ohrozit bezpečnost skupiny. V takovém případě bude Účastníkovi plně vrácena celá uhrazená částka.</p>
+    </div>
+    <div class="doc-article">
+      <h2>7. Pojištění</h2>
+      <p>7.1. Účastník bere na vědomí, že v ceně retreatu není zahrnuto žádné cestovní pojištění ani úrazové pojištění.</p>
+      <p>7.2. Účastník je plně zodpovědný za sjednání vlastního odpovídajícího pojištění platného pro dobu konání retreatu.</p>
+    </div>
+    <div class="doc-article">
+      <h2>8. Autorská práva, foto a video materiály</h2>
+      <p>8.1. Veškeré materiály, program a know-how prezentované během retreatu jsou duševním vlastnictvím Organizátora a je zakázáno je nahrávat, šířit nebo komerčně využívat bez předchozího písemného souhlasu.</p>
+      <p>8.2. Fotografie a videozáznamy mohou být pořizovány pro propagační účely Organizátora výhradně na základě výslovného souhlasu Účastníka v registračním formuláři.</p>
+    </div>
+    <div class="doc-article">
+      <h2>9. Ochrana osobních údajů (GDPR / RODO)</h2>
+      <p>9.1. Organizátor zpracovává osobní údaje Účastníků v souladu s nařízením GDPR a polskými předpisy.</p>
+      <p>9.2. Podrobné informace jsou uvedeny v samostatném dokumentu <strong>Zásady ochrany osobních údajů</strong>, který je k dispozici v rámci registračního formuláře.</p>
+    </div>
+    <div class="doc-article">
+      <h2>11. Stížnosti a reklamace</h2>
+      <p>11.1. Účastník má právo podat stížnost týkající se poskytnutých služeb v rámci těchto VOP.</p>
+      <p>11.2. Stížnost je nutno podat výhradně písemnou formou na e-mail: <a href="mailto:lukasbiz@icloud.com">lukasbiz@icloud.com</a>. Stížnost by měla obsahovat jméno a příjmení Účastníka, popis události a požadovaný způsob řešení.</p>
+      <p>11.3. Organizátor je povinen stížnost vyřídit a odpovědět nejpozději do <strong>14 dnů</strong> od jejího obdržení. Nevyřízení stížnosti v této lhůtě se považuje za její uznání.</p>
+    </div>
+
+    <div class="doc-article">
+      <h2>10. Závěrečná ustanovení</h2>
+      <p>10.1. Tyto VOP nabývají platnosti a účinnosti dnem zveřejnění na webových stránkách retreatu.</p>
+      <p>10.2. Právní vztahy těmito VOP výslovně neupravené se řídí právním řádem Polské republiky. Veškeré případné spory budou řešeny před příslušnými polskými soudy.</p>
+    </div>
+  </div>
+
+  <!-- EN -->
+  <div data-lang="en">
+    <div class="doc-article">
+      <h2>1. Introductory Provisions and Subject of the Contract</h2>
+      <p>1.1. These Terms and Conditions (hereinafter referred to as "T&C") govern the mutual rights and obligations between the organiser and the retreat participant.</p>
+      <p>1.2. <strong>Organizer:</strong> Lukas Misiorowski, doing business in the Republic of Poland, registered address: Sosnowa 6D, Jagatowo, 83-010, Poland, NIP: 6040272541, email: <a href="mailto:lukasbiz@icloud.com">lukasbiz@icloud.com</a> (hereinafter referred to as the "Organizer").</p>
+      <p>1.3. <strong>Participant:</strong> A natural person (of legal age) who successfully completes and submits the electronic registration form and pays the retreat fee (hereinafter referred to as the "Participant").</p>
+      <p>1.4. By submitting the registration form and checking the relevant box, the Participant confirms that they have thoroughly familiarised themselves with these T&C, understand them, and agree to them without reservation. This act concludes the service agreement.</p>
+      <p>1.5. <strong>Subject of the Contract:</strong> The subject of the contract is exclusively the provision of participation in the experiential programme and activities of the "Camino Within" retreat (hereinafter referred to as the "Programme"). The Organizer acts as a facilitator of an educational personal development programme and not as a tourist guide within the meaning of applicable tourism legislation. The Organizer does not provide accommodation or transportation. The Participant acknowledges that they arrange and pay for accommodation, meals, and transportation entirely on their own, at their own expense and responsibility. Any information regarding accommodation or transport provided by the Organizer is for informational purposes only. The contract for lodging or transport is concluded exclusively between the Participant and the respective third-party service provider.</p>
+    </div>
+    <div class="doc-article">
+      <h2>2. Conclusion of the Contract and Consumer Rights</h2>
+      <p>2.1. The contract between the Organizer and the Participant is established upon confirmation of registration by the Organizer and payment of the agreed deposit.</p>
+      <p>2.2. <strong>Consumer Notice (Withdrawal from the Contract):</strong> Due to the nature of the services (provision of leisure-related services with a specific date of performance), <strong>it is not possible to withdraw from the contract without giving a reason within the 14-day period</strong> as is customary for regular e-shops. Cancellation of participation is governed exclusively by the cancellation conditions according to Article 4 of these T&C.</p>
+    </div>
+    <div class="doc-article">
+      <h2>3. Prices and Payment Terms</h2>
+      <p>3.1. The retreat prices are final and set based on the total number of participants:</p>
+      <ul>
+        <li><strong>600 EUR</strong> per person for 4 or more participants</li>
+        <li><strong>700 EUR</strong> per person for 3 participants</li>
+      </ul>
+      <p>3.2. <strong>Payment Schedule:</strong></p>
+      <ul>
+        <li><strong>Deposit:</strong> A deposit of 300 EUR is required upon registration</li>
+        <li><strong>Balance:</strong> The remaining amount is due no later than 30 days before the start of the retreat. Payment instructions will be sent by email</li>
+      </ul>
+      <p>3.3. All payments are made in EUR (or the agreed equivalent in PLN) to the Organizer's bank account. In case of delay in paying the balance, the Organizer has the right to withdraw from the contract.</p>
+      <p>3.4. The decisive moment for determining the final price is the balance due date, i.e., 30 days before the start of the retreat. If fewer than 3 participants register, the Organizer reserves the right to cancel the retreat and refund 100% of all paid deposits.</p>
+    </div>
+    <div class="doc-article">
+      <h2>4. Cancellation Conditions (Withdrawal by the Participant)</h2>
+      <p>4.1. The Participant may cancel their participation at any time, exclusively in writing (by email to the Organizer's contact).</p>
+      <p>4.2. The following cancellation fees apply:</p>
+      <ul>
+        <li><strong>More than 30 days before the retreat:</strong> Deposit refunded minus an administrative fee of 50 EUR</li>
+        <li><strong>30 to 14 days before the retreat:</strong> Cancellation fee of 300 EUR (deposit is forfeited)</li>
+        <li><strong>Less than 14 days before the retreat:</strong> Cancellation fee of 100% of the total price</li>
+      </ul>
+      <p>4.3. <strong>Substitute:</strong> The Participant may send a substitute at any time without a cancellation fee, provided the Organizer is notified in advance with the new participant's details.</p>
+    </div>
+    <div class="doc-article">
+      <h2>5. Cancellation of the Event or Changes by the Organizer</h2>
+      <p>5.1. The Organizer reserves the right to cancel the retreat in the event of failure to reach minimum capacity, Force Majeure, or unexpected operational reasons.</p>
+      <p>5.2. In the event of cancellation by the Organizer, 100% of the paid amount will be refunded. The Organizer bears no responsibility for additional costs incurred by the Participant.</p>
+      <p>5.3. The Organizer reserves the right to make minor adjustments to the programme, schedule, or coaching staff for operational reasons.</p>
+      <p>5.4. <strong>Changes to the programme due to external conditions:</strong> The Organizer reserves the right to adjust the route, daily schedule, or programme depending on weather conditions, safety risks, or the state of the group. Such adjustments do not give the Participant the right to withdraw from the contract or claim a refund.</p>
+    </div>
+    <div class="doc-article">
+      <h2>6. Health Status, Safety and Limitation of Liability</h2>
+      <p>6.1. <strong>Health Fitness:</strong> The Participant declares that they are fully physically and mentally fit to participate in the retreat and do so at their own risk.</p>
+      <p>6.2. <strong>Notification Duty:</strong> If the Participant has any health restrictions, chronic illnesses, allergies, or takes medication, they are obliged to inform the Organizer in advance in the registration form.</p>
+      <p>6.3. The Organizer shall not be liable for damages, theft, or personal injuries, except for those resulting from intentional fault or negligence directly attributable to the Organizer.</p>
+      <p>6.4. <strong>Liability for Accommodation and Personal Belongings:</strong> The Organizer bears no responsibility for the quality of accommodation, transport, or loss and damage of the Participant's personal belongings.</p>
+      <p>6.5. <strong>Exclusion from the retreat:</strong> The Organizer is entitled to immediately exclude a Participant without a right to a refund if their behaviour or consumption of alcohol/substances endangers the safety of other participants.</p>
+      <p>6.6. <strong>Equipment and physical preparation:</strong> The Participant bears full responsibility for choosing appropriate clothing, footwear, and equipment.</p>
+      <p>6.7. <strong>Assessment of health fitness:</strong> The Organizer reserves the right to refuse a Participant's attendance if their health condition could endanger the safety of the group. In such a case, the entire amount paid will be fully refunded.</p>
+    </div>
+    <div class="doc-article">
+      <h2>7. Insurance</h2>
+      <p>7.1. The Participant acknowledges that no travel insurance or accident insurance is included in the retreat price.</p>
+      <p>7.2. The Participant is fully responsible for arranging their own appropriate insurance valid for the duration of the retreat.</p>
+    </div>
+    <div class="doc-article">
+      <h2>8. Copyright, Photo and Video Materials</h2>
+      <p>8.1. All materials, programmes and know-how presented during the retreat are the intellectual property of the Organizer or instructors. Recording, distributing or commercially using them without prior written consent is prohibited.</p>
+      <p>8.2. Photographs and video recordings may be created for the Organizer's promotional purposes exclusively based on explicit consent provided by the Participant in the registration form.</p>
+    </div>
+    <div class="doc-article">
+      <h2>9. Personal Data Protection (GDPR)</h2>
+      <p>9.1. The Organizer processes Participants' personal data in accordance with Regulation (EU) 2016/679 (GDPR) and Polish regulations.</p>
+      <p>9.2. Detailed information on the processing of personal data is provided in a separate <strong>Privacy Policy</strong> document, available within the registration form.</p>
+    </div>
+    <div class="doc-article">
+      <h2>10. Complaints</h2>
+      <p>10.1. The Participant has the right to submit a complaint regarding the services provided under these T&C.</p>
+      <p>10.2. Complaints must be submitted exclusively in writing to: <a href="mailto:lukasbiz@icloud.com">lukasbiz@icloud.com</a>. The complaint should include the Participant's full name, a description of the issue, and the expected resolution.</p>
+      <p>10.3. The Organizer is obliged to consider the complaint and respond within <strong>14 days</strong> of receipt. Failure to respond within this period shall be deemed acceptance of the complaint.</p>
+    </div>
+
+    <div class="doc-article">
+      <h2>11. Final Provisions</h2>
+      <p>11.1. These T&C become valid and effective on the day of publication on the retreat website.</p>
+      <p>11.2. Legal relations not explicitly regulated by these T&C are governed by the legal order of the Republic of Poland. Any potential disputes will be resolved before the relevant Polish courts.</p>
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 48px;">
+    <a href="index.html" class="back-btn">
+      <span data-lang="pl" class="active">← Powrót do broszury</span>
+      <span data-lang="cs">← Zpět na brožuru</span>
+      <span data-lang="en">← Back to brochure</span>
+    </a>
+  </div>
+
+</div>
+
+<footer style="background: #fff; padding: 48px 24px; text-align: center; border-top: 1px solid #e8e0d0;">
+  <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; font-weight: 300; color: #e8d48a; letter-spacing: 0.1em; margin-bottom: 12px;">Camino Within</div>
+  <div style="margin: 0 0 16px 0; display: flex; justify-content: center;">
+    <svg width="32" height="32" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(90)">
+      <line x1="35" y1="64" x2="10" y2="45" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="35" y1="63" x2="6"  y2="30" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="35" y1="63" x2="10" y2="16" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="35" y1="62" x2="22" y2="7"  stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="35" y1="62" x2="35" y2="4"  stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="35" y1="62" x2="48" y2="7"  stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="35" y1="63" x2="60" y2="16" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="35" y1="63" x2="64" y2="30" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="35" y1="64" x2="60" y2="46" stroke="#b8960c" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="25" y1="61" x2="45" y2="61" stroke="#b8960c" stroke-width="1.6" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <p style="font-size: 11px; color: #888; letter-spacing: 0.2em; text-transform: uppercase;">
+    <span data-lang="pl" class="active">Październik 2026 · Hiszpania</span>
+    <span data-lang="cs">Říjen 2026 · Španělsko</span>
+    <span data-lang="en">October 2026 · Spain</span>
+  </p>
+  <p style="font-size: 12px; color: #ccc; margin-top: 16px;">Lukas Misiorowski</p>
+</footer>
+
+<div style="background: #0d1f25; padding: 14px 40px; width: 100%;">
+  <p style="font-size: 10px; color: rgba(255,255,255,0.35); line-height: 1.6; letter-spacing: 0.04em; text-align: left;">
+    Łukasz Misiorowski · Sosnowa 6D, Jagatowo, 83-010, Polska · NIP: 6040272541 · <a href="mailto:lukasbiz@icloud.com" style="color: rgba(255,255,255,0.35); text-decoration: none;">lukasbiz@icloud.com</a>
+  </p>
+  <p style="font-size: 10px; color: rgba(255,255,255,0.35); line-height: 1.6; letter-spacing: 0.04em; text-align: left; margin-top: 4px;">
+    <span data-lang="pl" class="active">Udział podlega <a href="vop.html" style="color: rgba(232,212,138,0.6); text-decoration: none;">Regulaminowi</a> oraz <a href="gdpr.html" style="color: rgba(232,212,138,0.6); text-decoration: none;">Polityce prywatności</a>.</span>
+    <span data-lang="cs">Účast podléhá <a href="vop.html" style="color: rgba(232,212,138,0.6); text-decoration: none;">Všeobecným obchodním podmínkám</a> a <a href="gdpr.html" style="color: rgba(232,212,138,0.6); text-decoration: none;">Zásadám ochrany osobních údajů</a>.</span>
+    <span data-lang="en">Participation is subject to our <a href="vop.html" style="color: rgba(232,212,138,0.6); text-decoration: none;">General Terms and Conditions</a> and <a href="gdpr.html" style="color: rgba(232,212,138,0.6); text-decoration: none;">Privacy Policy</a>.</span>
+  </p>
+</div>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.classList.toggle('active', el.getAttribute('data-lang') === lang);
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('onclick').includes("'" + lang + "'"));
+    });
+    document.documentElement.setAttribute('lang', lang);
+    localStorage.setItem('vop_lang', lang);
+  }
+  (function() {
+    const saved = localStorage.getItem('vop_lang');
+    if (saved && saved !== 'pl') setLang(saved);
+  })();
+</script>
+
+</body>
+</html>
